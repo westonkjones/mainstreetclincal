@@ -1,16 +1,10 @@
-<div class="header-container">
-    <header>
-        <h1 class="title">My Angular2 + TypeScript App</h1>
-    </header>
-</div>
-
-<div class="main-container">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <a routerLink="/" class="navbar-brand">Mainstreet</a>
+    </div>
+    <ul class="navbar-top-links navbar-right">
+    </ul>
+</nav>
+<div id="main-content">
     <router-outlet></router-outlet>
-</div>
-
-<div class="footer-container">
-    <footer>
-        <a routerLink="/">Home</a> | <a routerLink="/about" routerLinkActive="active">About</a>
-        <span>&copy; 2016</span>
-    </footer>
 </div>
