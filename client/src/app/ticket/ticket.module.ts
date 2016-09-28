@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { TicketComponent } from './ticket.component';
+import { TicketComponent } from './ticket.component.ts';
 
 @NgModule({
     declarations: [TicketComponent],

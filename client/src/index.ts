@@ -1,4 +1,4 @@
-/// <reference path="../typings/index.d.ts"/>
+ /// <reference path="../typings/index.d.ts"/>
 
 import 'core-js/client/shim';
 import 'zone.js/dist/zone';
@@ -8,7 +8,7 @@ import 'rxjs';
 
 import {enableProdMode} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {AppModule} from './app/index.ts';
+import {AppModule} from './app/app.module.ts';
 
 import {production} from '@system-env';
 
@@ -19,4 +19,4 @@ if (production) {
   System.import('zone.js/dist/long-stack-trace-zone'); // tslint:disable-line:no-var-requires
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+ platformBrowserDynamic().bootstrapModule(AppModule);

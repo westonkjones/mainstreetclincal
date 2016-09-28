@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { TicketComponent } from './ticket.component';
+import { TicketComponent } from './ticket.component.ts';
 
 export const TicketRoutes: Route[] = [
     {

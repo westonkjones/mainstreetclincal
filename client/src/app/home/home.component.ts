@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    moduleId: module.id,
+    moduleId: __moduleName,
     selector: 'mainstreet-home',
     templateUrl: './home.component.html'
 })

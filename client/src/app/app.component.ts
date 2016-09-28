@@ -1,9 +1,10 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
+    moduleId: __moduleName,
     selector: 'mainstreet-app',
-    templateUrl: 'src/app/app.component.html',
-    styleUrls: ['bootstrap/dist/css/bootstrap.css']
+    templateUrl: './app.component.html',
+    styleUrls: ['/bootstrap/dist/css/bootstrap.css']
 })
 
 export class AppComponent { }
