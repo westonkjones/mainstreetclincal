@@ -1,64 +1,318 @@
 {
-  "name": "mainstreetclinical",
-  "version": "0.1.0",
-  "description": "My Angular2-TypeScript App",
-  "keywords": [
-    "angular2",
-    "typescript",
-    "webpack"
-  ],
+  "name": "mainstreetclincal",
+  "version": "1.0.0",
+  "main": "server/server.js",
   "scripts": {
-    "lint": "tslint \"src/**/*.ts\"",
-    "start": "gulp",
-    "build": "gulp build",
-    "postinstall": "typings install",
-    "test": "karma start"
-  },
-  "dependencies": {
-    "@angular/common": "2.0.0",
-    "@angular/compiler": "2.0.0",
-    "@angular/core": "2.0.0",
-    "@angular/platform-browser": "2.0.0",
-    "@angular/platform-browser-dynamic": "2.0.0",
-    "@angular/router": "3.0.0",
-    "bootstrap": "^3.3.7",
-    "core-js": "^2.4.1",
-    "jquery": "^2.2.4",
-    "reflect-metadata": "^0.1.3",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.23"
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check",
+    "build": "gulp",
+    "serve": "gulp serve",
+    "serve:dist": "gulp serve:dist",
+    "test": "gulp test",
+    "test:auto": "gulp test:auto",
+    "jspm": "jspm"
   },
   "devDependencies": {
-    "codelyzer": "0.0.19",
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-shell": "^0.5.2",
-    "run-sequence": "^1.2.2",
-    "rimraf": "^2.5.2",
-    "concurrently": "^2.2.0",
-    "tslint": "^3.13.0",
+    "eslint": "^3.2.2",
+    "eslint-config-loopback": "^4.0.0",
+    "nsp": "^2.1.0",
+    "del": "^2.0.2",
+    "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
+    "gulp-hub": "frankwallis/gulp-hub#d461b9c700df9010d0a8694e4af1fb96d9f38bf4",
+    "gulp-filter": "^4.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-useref": "^3.0.3",
+    "gulp-postcss": "^6.0.1",
+    "autoprefixer": "^6.2.3",
+    "gulp-rev": "^6.0.1",
+    "gulp-rev-replace": "^0.4.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "uglify-save-license": "^0.4.1",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-htmlmin": "^1.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-inline-ng2-template": "^2.0.4",
+    "browser-sync": "^2.9.11",
+    "browser-sync-spa": "^1.0.3",
+    "karma": "^1.3.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-junit-reporter": "^1.1.0",
+    "jasmine": "^2.4.1",
+    "es6-shim": "^0.35.0",
+    "karma-chrome-launcher": "^0.2.3",
+    "glob": "^7.0.3",
+    "karma-jspm": "^2.0.2",
+    "jspm": "0.17.0-beta.25",
+    "systemjs-builder": "0.15.23",
+    "gulp-replace": "^0.5.4",
+    "eslint-config-xo-space": "^0.12.0",
+    "gulp-eslint": "^2.0.0",
+    "babel-eslint": "^6.0.2",
+    "eslint-plugin-babel": "^3.1.0",
+    "tslint": "^3.2.1",
     "typescript": "^2.0.2",
-    "typings": "^1.3.2",
-    "css-loader": "^0.23.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.8.5",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-coverage": "^1.0.0",
-    "karma-jasmine": "^0.3.8",
-    "karma-mocha-reporter": "^2.0.4",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "html-loader": "^0.4.3",
-    "html-webpack-plugin": "^2.15.0",
-    "null-loader": "^0.1.1",
-    "raw-loader": "^0.5.1",
-    "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.1",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0"
+    "typings": "^1.0.4",
+    "gulp-tslint": "^4.2.2",
+    "codelyzer": "^0.0.25"
   },
-  "license": "Apache-2.0"
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "mainstreetclincal",
+  "jspm": {
+    "dependencies": {
+      "compression": "npm:compression@^1.0.3",
+      "cors": "npm:cors@^2.5.2",
+      "helmet": "npm:helmet@^1.3.0",
+      "loopback-boot": "npm:loopback-boot@^2.6.5",
+      "loopback-component-explorer": "npm:loopback-component-explorer@^2.4.0",
+      "serve-favicon": "npm:serve-favicon@^2.0.1",
+      "strong-error-handler": "npm:strong-error-handler@^1.0.1",
+      "loopback": "npm:loopback@^2.22.0",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0",
+      "@angular/http": "npm:@angular/http@^2.0.0",
+      "core-js": "npm:core-js@^2.4.1",
+      "@angular/router": "npm:@angular/router@^3.0.0",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.3",
+      "ts": "github:frankwallis/plugin-typescript@5.1.2"
+    },
+    "devDependencies": {
+      "babel-plugin-transform-es2015-typeof-symbol": "npm:babel-plugin-transform-es2015-typeof-symbol@^6.8.0",
+      "babel-plugin-angular2-annotations": "npm:babel-plugin-angular2-annotations@^5.0.0",
+      "babel-plugin-transform-decorators-legacy": "npm:babel-plugin-transform-decorators-legacy@^1.3.4",
+      "babel-plugin-transform-class-properties": "npm:babel-plugin-transform-class-properties@^6.6.0",
+      "babel-plugin-transform-flow-strip-types": "npm:babel-plugin-transform-flow-strip-types@^6.6.4"
+    },
+    "peerDependencies": {
+      "@angular/common": "npm:@angular/common@2.0.1",
+      "@angular/compiler": "npm:@angular/compiler@^2.0.0",
+      "@angular/core": "npm:@angular/core@2.0.1",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^2.0.0",
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "bcrypt-pbkdf": "npm:bcrypt-pbkdf@^1.0.0",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
+      "cluster": "github:jspm/nodelibs-cluster@^0.2.0-alpha",
+      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
+      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
+      "dgram": "github:jspm/nodelibs-dgram@^0.2.0-alpha",
+      "dns": "github:jspm/nodelibs-dns@^0.2.0-alpha",
+      "domain": "github:jspm/nodelibs-domain@^0.2.0-alpha",
+      "ecc-jsbn": "npm:ecc-jsbn@~0.1.1",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
+      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
+      "jodid25519": "npm:jodid25519@^1.0.0",
+      "jsbn": "npm:jsbn@0.1",
+      "loopback-datasource-juggler": "npm:loopback-datasource-juggler@^2.39.0",
+      "module": "github:jspm/nodelibs-module@^0.2.0-alpha",
+      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "punycode": "github:jspm/nodelibs-punycode@^0.2.0-alpha",
+      "querystring": "github:jspm/nodelibs-querystring@^0.2.0-alpha",
+      "rxjs": "npm:rxjs@5.0.0-beta.12",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
+      "timers": "github:jspm/nodelibs-timers@^0.2.0-alpha",
+      "tls": "github:jspm/nodelibs-tls@^0.2.0-alpha",
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
+      "tweetnacl": "npm:tweetnacl@0.14",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
+      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
+      "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha",
+      "zone.js": "npm:zone.js@^0.6.21"
+    },
+    "overrides": {
+      "npm:@angular/common@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/common": ".",
+          "./testing": "./bundles/common-testing.umd.js"
+        }
+      },
+      "npm:@angular/compiler@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/compiler": ".",
+          "./testing": "./bundles/compiler-testing.umd.js"
+        }
+      },
+      "npm:@angular/core@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/core": ".",
+          "./testing": "./bundles/core-testing.umd.js"
+        }
+      },
+      "npm:@angular/http@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/http": ".",
+          "./testing": "./bundles/http-testing.umd.js"
+        }
+      },
+      "npm:@angular/platform-browser-dynamic@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/platform-browser-dynamic": ".",
+          "./testing": "./bundles/platform-browser-dynamic-testing.umd.js"
+        }
+      },
+      "npm:@angular/platform-browser@2.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/platform-browser": ".",
+          "./testing": "./bundles/platform-browser-testing.umd.js"
+        }
+      },
+      "npm:@angular/router@3.0.1": {
+        "meta": {
+          "src/*.js": {
+            "deps": [
+              "reflect-metadata",
+              "zone.js"
+            ]
+          }
+        },
+        "map": {
+          "@angular/router": ".",
+          "./testing": "./bundles/router-testing.umd.js"
+        }
+      },
+      "npm:browserify-zlib@0.1.4": {
+        "dependencies": {
+          "readable-stream": "^2.0.2",
+          "pako": "~0.2.0"
+        },
+        "map": {
+          "_stream_transform": "readable-stream/transform"
+        }
+      },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "./node.js": {
+            "browser": "./browser.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
+      "npm:esprima@2.7.3": {
+        "jspmNodeConversion": false
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:inherits@2.0.3": {
+        "ignore": [
+          "test.js"
+        ]
+      },
+      "npm:lodash@4.16.2": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
+      },
+      "npm:reflect-metadata@0.1.8": {
+        "jspmNodeConversion": false,
+        "map": {
+          "crypto": {
+            "node": "@node/crypto",
+            "default": "@empty"
+          }
+        }
+      },
+      "npm:typescript@2.0.3": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
+        }
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "jasmine": true
+    },
+    "extends": [
+      "xo-space/esnext"
+    ],
+    "globals": {
+      "SystemJS": true,
+      "__moduleName": true
+    }
+  }
 }

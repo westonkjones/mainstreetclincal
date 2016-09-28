@@ -1,25 +1,33 @@
-var gulp = require('gulp'),
-    rimraf = require('rimraf'),
-    plugins = require('gulp-load-plugins')({
-        lazy: true
-    }),
-    runSequence = require('run-sequence');
+const gulp = require('gulp');
+const HubRegistry = require('gulp-hub');
+const browserSync = require('browser-sync');
 
-var paths = {
-    dist: 'dist'
-};
+const conf = require('./conf/gulp.conf');
 
-gulp.task('clean:dist', function(cb) {
-    rimraf(paths.dist, cb);
-});
+// Load some files into the registry
+const hub = new HubRegistry([conf.path.tasks('*.js')]);
 
-gulp.task('server', plugins.shell.task('webpack-dev-server --inline --colors --progress --port 3000'));
+// Tell gulp to use the tasks just loaded
+gulp.registry(hub);
 
-gulp.task('build', plugins.shell.task([
-    'rimraf dist',
-    'webpack --config config/webpack.prod.js --progress --colors --profile --bail'
-]));
+gulp.task('build', gulp.series(gulp.parallel('systemjs', 'systemjs:html', 'styles', 'other'), 'build'));
+gulp.task('test', gulp.series('karma:single-run'));
+gulp.task('test:auto', gulp.series('karma:auto-run'));
+gulp.task('serve', gulp.series(gulp.parallel('scripts', 'styles'), 'watch', 'browsersync'));
+gulp.task('serve:dist', gulp.series('default', 'browsersync:dist'));
+gulp.task('default', gulp.series('clean', 'build'));
+gulp.task('watch', watch);
 
-gulp.task('default', function(done) {
-    runSequence('clean:dist', 'server', done);
-});
+function reloadBrowserSync(cb) {
+  browserSync.reload();
+  cb();
+}
+
+function watch(done) {
+  gulp.watch(conf.path.src('**/*.html'), reloadBrowserSync);
+  gulp.watch([
+    conf.path.src('**/*.css')
+  ], gulp.series('styles'));
+  gulp.watch(conf.path.src('**/*.ts'), gulp.series('scripts'));
+  done();
+}
