@@ -39,6 +39,17 @@
       console.error(e,
         'Report this error at https://github.com/mgechev/angular2-seed/issues');
     });
+  System.config({
+    packages: {
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    },
+    map: {
+      moment: 'node_modules/moment/moment.js'
+    }
+  })
   </script>
   <% } %>
 
