@@ -5,6 +5,7 @@
 import { enableProdMode } from '@angular/core';
 // The browser platform with a compiler
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // The app module
 import { AppModule } from './app.module';
