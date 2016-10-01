@@ -1,3 +1,6 @@
+<div [hidden]="!submitted || submitted && successful" id="submitErrorAlert" class="alert alert-danger fadeIn text-cener">
+    There was an error submitting this ticket. Unable to submit tickets at this time
+</div>  
 <form (ngSubmit)="onSubmit()" #ticketCreateForm="ngForm">
     <h1>Create New Ticket</h1>
     <div class="form-group">
