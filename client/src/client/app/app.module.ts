@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './home/home.module';
+import { TicketModule } from './ticket/ticket.module';
+
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, HomeModule, SharedModule.forRoot()],
+  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, SharedModule.forRoot(), HomeModule, TicketModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,
