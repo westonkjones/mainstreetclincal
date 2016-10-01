@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Ticket } from '../ticket';
+
 @Component({
     moduleId: module.id,
     selector: 'ms-create-ticket',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
     styleUrls: ['ticket.create.component.css']
 
 })
-export class TicketCreateComponent { }
+export class TicketCreateComponent {
+    
+ }
