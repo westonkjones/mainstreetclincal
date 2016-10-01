@@ -10,5 +10,5 @@ import { Ticket } from '../ticket';
 
 })
 export class TicketCreateComponent {
-    
+    model = new Ticket();
  }
