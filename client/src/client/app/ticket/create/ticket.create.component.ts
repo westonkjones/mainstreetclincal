@@ -19,7 +19,9 @@ export class TicketCreateComponent {
     }
 
     onSubmit() {
-        this.service.addTicket(this.model);
-        console.log(this.service.getTickets());
+        var success = this.service.addTicket(this.model);
+        success = false;
+        if(success)
+            this.form.reset();
     }
  }
