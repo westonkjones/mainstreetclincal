@@ -11,11 +11,13 @@ import { TicketService } from '../ticket.service';
     providers: [TicketService]
 })
 export class TicketCreateComponent {
+    private title: string;
     private model: Ticket;
     private service: TicketService;
     private submitted: boolean;
     private successful: boolean;
     constructor(private ticketService: TicketService) {
+        this.title = 'Submit a Ticket';
         this.model = new Ticket();
         this.service = ticketService;
         this.submitted = false;

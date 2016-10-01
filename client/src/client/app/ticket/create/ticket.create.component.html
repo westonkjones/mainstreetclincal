@@ -2,7 +2,6 @@
     There was an error submitting this ticket. Unable to submit tickets at this time
 </div>  
 <form (ngSubmit)="onSubmit()" #ticketCreateForm="ngForm">
-    <h1>Create New Ticket</h1>
     <div class="form-group">
         <label for="user">User</label>
         <input type="text" class="form-control" id="user" required [(ngModel)]="model.user" name="user" #user=ngModel>
