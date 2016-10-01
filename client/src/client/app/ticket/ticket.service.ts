@@ -7,14 +7,6 @@ export class TicketService {
     private tickets: Ticket[];
     constructor() {
         this.tickets = [];
-
-        var t1 = new Ticket();
-        t1.id = 1;
-        var t2 = new Ticket();
-        t2.id = 2;
-
-        this.tickets.push(t1);
-        this.tickets.push(t2);
     }
 
     getTickets(): Ticket[] {
@@ -25,6 +17,11 @@ export class TicketService {
         return true;
     }
     deleteTicket(ticket): boolean {
-        return true;
+        var index: number = this.tickets.indexOf(ticket);
+        if(index > -1) {
+            this.tickets.splice(index);
+            return true;
+        }
+        return false;
     }
  }
