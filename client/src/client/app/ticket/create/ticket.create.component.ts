@@ -13,15 +13,19 @@ import { TicketService } from '../ticket.service';
 export class TicketCreateComponent {
     private model: Ticket;
     private service: TicketService;
+    private submitted: boolean;
+    private successful: boolean;
     constructor(private ticketService: TicketService) {
         this.model = new Ticket();
         this.service = ticketService;
+        this.submitted = false;
+        this.successful = false;
     }
 
     onSubmit() {
-        var success = this.service.addTicket(this.model);
-        success = false;
-        if(success)
+        this.submitted = true;
+        this.successful = this.service.addTicket(this.model);
+        if(this.successful)
             this.form.reset();
     }
  }
