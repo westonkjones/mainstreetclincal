@@ -1,23 +1,34 @@
-<div class="container">
+<form>
     <h1>Create New Ticket</h1>
-    <form>
-        <div class="form-group">
-            <label for="user">User</label>
-            <input type="text" class="form-control" id="user" required [(ngModel)]="model.user" name="user">
+    <div class="form-group">
+        <label for="user">User</label>
+        <input type="text" class="form-control" id="user" required [(ngModel)]="model.user" name="user" #user=ngModel>
+        {{user.className}}
+        <div [hidden]="user.untouched || user.valid" class="alert alert-danger">
+            A user for this ticket is required
         </div>
-        <div class="form-group">
-            <label for="nextStop">Next Stop User</label>
-            <input type="text" class="form-control" id="nextStop" required [(ngModel)]="model.nextStop" name="nextStop">
+    </div>
+    <div class="form-group">
+        <label for="nextStop">Next Stop User</label>
+        <input type="text" class="form-control" id="nextStop" required [(ngModel)]="model.nextStop" name="nextStop" #nextStop=ngModel>
+        <div [hidden]="nextStop.untouched || nextStop.valid" class="alert alert-danger">
+            A next stop user for this ticket is required
         </div>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title">
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title=ngModel>
+        <div [hidden]="title.untouched || title.valid" class="alert alert-danger">
+            A title for this ticket is required
         </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" rows="5" required [(ngModel)]="model.description" name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" rows="5" required [(ngModel)]="model.description" name="description" #description=ngModel></textarea>
+        <div [hidden]="description.untouched || description.valid" class="alert alert-danger">
+            A description for this ticket is required
         </div>
+    </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-</div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
