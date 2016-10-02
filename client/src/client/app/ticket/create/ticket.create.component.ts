@@ -25,7 +25,5 @@ export class TicketCreateComponent {
     onSubmit() {
         this.submitted = true;
         this.successful = this.ticketService.addTicket(this.model);
-        if(this.successful)
-            this.form.reset();
     }
  }
