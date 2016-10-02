@@ -1,0 +1,18 @@
+<div class="container-fluid">
+   <div class="col-md-6">
+       <h2>Open Tickets</h2>
+       <div class="well">
+           <div *ngFor="let ticket of tickets">
+                <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'OPEN'"></ms-ticket-widget>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>Closed Tickets</h2>
+        <div class="well">
+            <div *ngFor="let ticket of tickets">
+                <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'CLOSED'"></ms-ticket-widget>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,10 +23,21 @@ export class TicketService {
         t2.description = 'play with nip mouse';
         t2.nextStop = 'Yertle';
         t2.title = 'Meow';
+        t2.status = 'CLOSED';
+
+        var t3 = new Ticket();
+        t3.id = 3;
+        t3.created = '3/3/31';
+        t3.user = 'Emma Dean';
+        t3.creator = 'Emma Dean';
+        t3.description = 'Study';
+        t3.nextStop = 'Wes Jones';
+        t3.title = 'Study';
 
         this.tickets = [];
         this.tickets.push(t1);
         this.tickets.push(t2);
+        this.tickets.push(t3);
     }
 
     getTickets(): Ticket[] {
