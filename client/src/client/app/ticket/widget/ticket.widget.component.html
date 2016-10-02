@@ -1,1 +1,21 @@
-{{ticket.id}}
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ticket.title}} <a class="pull-right" href="#"><small><span class="glyphicon glyphicon-pencil"></span></small></a></h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <span class="glyphicon glyphicon-user"></span> {{ticket.user}}
+        </div>
+        <div>
+            <span class="glyphicon glyphicon-road"></span> {{ticket.nextStop}}
+       </div> 
+       <div class="widgt-description">
+            <p>
+                {{ticket.description}}
+            </p>
+       </div>
+    </div>
+    <div class="panel-footer">
+        <small>Created by {{ticket.creator}} on {{ticket.created}}</small>
+    </div>
+</div>
