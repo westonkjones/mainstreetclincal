@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 import { routes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,7 +15,7 @@ import { TicketModule } from './ticket/ticket.module';
 
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, RouterModule.forRoot(routes), NgbModule, SharedModule.forRoot(),
+  imports: [BrowserModule, HttpModule, CommonModule, RouterModule.forRoot(routes), NgbModule, SharedModule.forRoot(),
     HomeModule, TicketModule],
   declarations: [AppComponent],
   providers: [{
