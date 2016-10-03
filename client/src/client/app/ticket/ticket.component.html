@@ -1,6 +1,17 @@
+<template #createModal let-c="close">
+    <div class="modal-header">
+        <span class="pull-right">
+            <a class="glyphicon glyphicon-remove" (click)="c()"></a>
+        </span>
+        <h2>{{create.title}}</h2>
+    </div>
+    <div class="modal-body">
+        <ms-create-ticket #create (submit)="c()"></ms-create-ticket>
+    </div>
+</template>
 <div class="container-fluid">
    <div class="col-md-6">
-       <h2>Open Tickets</h2>
+       <h2>Open Tickets <span class="pull-right"><button class="btn btn-success" (click)="openCreateModal(createModal)"><span class="glyphicon glyphicon-plus"></span> Open A Ticket</button></span></h2>
        <div class="well">
            <div *ngFor="let ticket of tickets">
                 <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'OPEN'"></ms-ticket-widget>

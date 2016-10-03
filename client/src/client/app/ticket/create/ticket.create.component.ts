@@ -23,6 +23,7 @@ export class TicketCreateComponent {
     }
 
     onSubmit() {
+        console.log("Submitted");
         this.submitted = true;
         this.successful = this.ticketService.addTicket(this.model);
     }
