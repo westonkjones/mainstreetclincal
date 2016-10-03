@@ -13,7 +13,7 @@
    <div class="col-md-6">
        <h2>Open Tickets <span class="pull-right"><button class="btn btn-success" (click)="openCreateModal(createModal)"><span class="glyphicon glyphicon-plus"></span> Open A Ticket</button></span></h2>
        <div class="well">
-           <div *ngFor="let ticket of tickets">
+           <div *ngFor="let ticket of tickets; trackBy: trackByFn">
                 <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'OPEN'"></ms-ticket-widget>
             </div>
         </div>
@@ -21,7 +21,7 @@
     <div class="col-md-6">
         <h2>Closed Tickets</h2>
         <div class="well">
-            <div *ngFor="let ticket of tickets">
+            <div *ngFor="let ticket of tickets; trackBy: trackByFn">
                 <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'CLOSED'"></ms-ticket-widget>
             </div>
         </div>
