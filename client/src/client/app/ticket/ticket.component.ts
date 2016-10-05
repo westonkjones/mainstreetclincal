@@ -11,17 +11,18 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     selector: 'ms-ticket',
     templateUrl: 'ticket.component.html',
     styleUrls: ['ticket.component.css'],
-    providers: [TicketService],
     directives: [TicketWidgetComponent, TicketCreateComponent]
 })
 export class TicketComponent implements OnInit {
-    tickets: Ticket[];
-    constructor(private ticketService: TicketService, private modalService: NgbModal) {
-    }
+    private tickets: Ticket[] = [];
+    constructor(private ticketService: TicketService, private modalService: NgbModal) {}
     ngOnInit(): void {
-        this.tickets = this.ticketService.getTickets();
+        this.getTickets();
     }
     openCreateModal(content) {
         this.modalService.open(content);
+    }
+    getTickets(): void {
+        this.ticketService.getTickets().then(tickets => this.tickets = tickets);
     }
 }

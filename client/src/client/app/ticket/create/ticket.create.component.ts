@@ -7,8 +7,7 @@ import { TicketService } from '../ticket.service';
     moduleId: module.id,
     selector: 'ms-create-ticket',
     templateUrl: 'ticket.create.component.html',
-    styleUrls: ['ticket.create.component.css'],
-    providers: [TicketService]
+    styleUrls: ['ticket.create.component.css']
 })
 export class TicketCreateComponent {
     private title: string;

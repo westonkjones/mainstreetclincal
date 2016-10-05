@@ -13,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { TicketModule } from './ticket/ticket.module';
 
-
 @NgModule({
   imports: [BrowserModule, HttpModule, CommonModule, RouterModule.forRoot(routes), NgbModule, SharedModule.forRoot(),
     HomeModule, TicketModule],
@@ -26,4 +25,6 @@ import { TicketModule } from './ticket/ticket.module';
 
 })
 
-export class AppModule { }
+export class AppModule { 
+
+}

@@ -4,7 +4,7 @@ import { Ticket } from './ticket';
 
 @Injectable()
 export class TicketService {
-    private tickets: Ticket[];
+    public tickets: Ticket[] = [];
     constructor() {
         var t1 = new Ticket();
         t1.id = 1;
@@ -34,17 +34,20 @@ export class TicketService {
         t3.nextStop = 'Wes Jones';
         t3.title = 'Study';
 
-        this.tickets = [];
         this.tickets.push(t1);
         this.tickets.push(t2);
         this.tickets.push(t3);
     }
 
-    getTickets(): Ticket[] {
-        return this.tickets;
+    getTickets(): Promise<Ticket[]> {
+        return Promise.resolve(this.tickets);
     }
     addTicket(ticket: Ticket): boolean {
+        console.log('before');
+        console.log(this.tickets);
         this.tickets.push(ticket);
+        console.log('after');
+        console.log(this.tickets);
         return true;
     }
     deleteTicket(ticket: Ticket): boolean {
