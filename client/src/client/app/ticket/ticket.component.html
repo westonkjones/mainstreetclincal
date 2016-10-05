@@ -22,7 +22,7 @@
                         <h2>{{edit.title}}</h2>
                     </div>
                     <div class="modal-body">
-                        <ms-edit-ticket #edit (submit)="c();" [ticket]=ticket></ms-edit-ticket>
+                        <ms-edit-ticket #edit (submit)="c();" (deleteTicketEvent)="getTickets()" [ticket]=ticket></ms-edit-ticket>
                     </div>
                 </template>
                 <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'OPEN'" (editTicketEvent)="openEditModal(editModal)"></ms-ticket-widget>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewChecked } from '@angular/core';
 
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
@@ -9,8 +9,9 @@ import { TicketService } from '../ticket.service';
     templateUrl: 'ticket.edit.component.html',
     styleUrls: ['ticket.edit.component.css']
 })
-export class TicketEditComponent {
+export class TicketEditComponent implements AfterViewChecked {
     @Input() ticket: Ticket;
+    @Output() deleteTicketEvent: EventEmitter<string> = new EventEmitter();
     private title: string;
     private submitted: boolean;
     private successful: boolean;
@@ -19,6 +20,8 @@ export class TicketEditComponent {
         this.title = 'Edit Ticket';
         this.submitted = false;
         this.successful = false;
+    }
+    ngAfterViewChecked() {
         this.originalTicket = this.ticket;
     }
     onSubmit() {

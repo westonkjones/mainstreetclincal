@@ -49,9 +49,10 @@ export class TicketService {
     deleteTicket(ticket: Ticket): boolean {
         var index: number = this.tickets.indexOf(ticket);
         if(index > -1) {
-            this.tickets.splice(index);
+            this.tickets.splice(index, 1);
             return true;
         }
+        console.log('returning false');
         return false;
     }
     updateTicket(ticket: Ticket): boolean {
