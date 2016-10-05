@@ -5,11 +5,11 @@ import { TicketCreateComponent } from './create/ticket.create.component';
 
 export const TicketRoutes: Routes[] = [
     {
-        path: 'ticket',
+        path: 'tickets',
         component:  TicketComponent
     },
     {
-        path: 'ticket/create',
+        path: 'tickets/create',
         component: TicketCreateComponent
     }
 ];
