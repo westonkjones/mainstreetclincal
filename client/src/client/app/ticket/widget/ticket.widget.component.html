@@ -1,6 +1,6 @@
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 class="panel-title">{{ticket.title}} <a class="pull-right" href="#"><small><span class="glyphicon glyphicon-pencil"></span></small></a></h3>
+        <h3 class="panel-title">{{ticket.title}} <a class="pull-right" id="editButton" (click)="editTicketEvent.emit('Edit Clicked')"><small><span class="glyphicon glyphicon-pencil"></span></small></a></h3>
     </div>
     <div class="panel-body">
         <div>

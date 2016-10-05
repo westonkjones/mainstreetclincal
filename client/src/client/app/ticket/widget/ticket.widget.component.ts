@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Ticket } from '../ticket';
+import { TicketService } from '../ticket.service';
 
 @Component({
     moduleId: module.id,
@@ -11,4 +11,9 @@ import { Ticket } from '../ticket';
 })
 export class TicketWidgetComponent {
     @Input() ticket: Ticket;
+    @Output() editTicketEvent: EventEmitter<string> = new EventEmitter();
+    constructor(private ticketService: TicketService) {}
+    onSubmit() {
+        this.ticketService.updateTicket(this.ticket);
+    }
 }

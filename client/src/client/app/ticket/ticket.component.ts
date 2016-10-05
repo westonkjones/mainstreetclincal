@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Ticket } from './ticket';
 import { TicketService } from './ticket.service';
-import { TicketWidgetComponent } from './widget/ticket.widget.component';
-import { TicketCreateComponent } from './create/ticket.create.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -11,7 +9,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     selector: 'ms-ticket',
     templateUrl: 'ticket.component.html',
     styleUrls: ['ticket.component.css'],
-    directives: [TicketWidgetComponent, TicketCreateComponent]
 })
 export class TicketComponent implements OnInit {
     private tickets: Ticket[] = [];
@@ -20,6 +17,9 @@ export class TicketComponent implements OnInit {
         this.getTickets();
     }
     openCreateModal(content) {
+        this.modalService.open(content);
+    }
+    openEditModal(content) {
         this.modalService.open(content);
     }
     getTickets(): void {

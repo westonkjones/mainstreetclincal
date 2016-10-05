@@ -43,11 +43,7 @@ export class TicketService {
         return Promise.resolve(this.tickets);
     }
     addTicket(ticket: Ticket): boolean {
-        console.log('before');
-        console.log(this.tickets);
         this.tickets.push(ticket);
-        console.log('after');
-        console.log(this.tickets);
         return true;
     }
     deleteTicket(ticket: Ticket): boolean {
@@ -57,5 +53,9 @@ export class TicketService {
             return true;
         }
         return false;
+    }
+    updateTicket(ticket: Ticket): boolean {
+        // Handle promise here
+        return true;
     }
  }
