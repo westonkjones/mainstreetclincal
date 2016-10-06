@@ -40,7 +40,28 @@
       ]
     }
   },
-  "files": {},
+"files": {
+    "loopback#static": [{
+        "name": "client",
+        "paths": ["/client"],
+        "params": "$!../client/dist/dev"
+    },
+    {
+        "name": "node_module",
+        "paths": ["/node_modules"],
+        "params": "$!../client/node_modules"
+    },
+    {
+        "name": "css",
+        "paths": ["/css"],
+        "params": "$!../client/dist/dev/css"
+    },
+    {
+        "name": "app",
+        "paths": ["/app"],
+        "params": "$!../client/dist/dev/app"
+    }]
+},
   "final": {
     "loopback#urlNotFound": {}
   },
