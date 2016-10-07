@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { TicketComponent } from './index';
+import { TicketComponent } from './ticket.component';
 import { TicketCreateComponent } from './create/ticket.create.component';
 
 export const TicketRoutes: Routes = [
