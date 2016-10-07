@@ -1,0 +1,41 @@
+<div class="container">
+    <div [hidden]="clinic != null" class="row">
+        <div class="col-xs-4 text-right">
+            
+        </div>
+        <div class="col-xs-4 text-center">
+            <h2>Please select a clinic</h2>
+            <div class="form-group" id="clinic-select">
+                <select class="form-control" [(ngModel)]="clinic">
+                    <option value="null"></option>
+                    <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="clinic">{{c.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-4 text-left">
+            
+        </div>
+    </div>
+    <div [hidden]="clinic == null" class="row">
+        <div class="col-xs-4 text-right">
+            
+        </div>
+        <div class="col-xs-4 text-center">
+            <h2>Please select today's staff</h2>
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-4">
+                <div class="glyphicon glyphicon-arrow-right"></div>
+                <div id="button-separator"></div>
+                <div class="glyphicon glyphicon-arrow-left"></div>
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+        </div>
+        <div class="col-xs-4 text-left">
+            
+        </div>
+    </div>
+</div>
