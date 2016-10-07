@@ -6,6 +6,6 @@ import { TaskRoutes } from './task/index';
 
 export const routes: Routes = [
   ...HomeRoutes,
-  ...TicketRoutes
+  ...TicketRoutes,
   ...TaskRoutes
 ];
