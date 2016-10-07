@@ -33,5 +33,5 @@
     </div>
     
     <button type="submit" class="btn btn-default" [disabled]="!ticketEditForm.form.valid">Submit</button>
-    <button class="btn btn-danger pull-right" (click)="deleteTicket(); deleteTicketEvent.emit('Deleting Ticket')">Delete</button>
+    <button class="btn btn-primary pull-right" (click)="deleteTicket(); deleteTicketEvent.emit('Deleting Ticket')">Delete</button>
 </form>
