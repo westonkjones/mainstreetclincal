@@ -10,16 +10,18 @@ import { ClinicService } from '../clinic/index';
     styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
-    private task: Task;
-    private clinic: Clinic;
-    private clinicList: Clinic[];
+    clinic: Clinic;
+    private clinics: Clinic[];
     constructor(private clinicService: ClinicService) {
-        this.task = new Task();
+        this.clinic = null;
     }
     ngOnInit(): void {
         this.getClinics();
     }
     getClinics(): void {
         this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+    }
+    getClinic(): Clinic {
+        return this.clinic;
     }
  }

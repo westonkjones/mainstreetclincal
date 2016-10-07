@@ -4,7 +4,7 @@ import { TaskComponent } from './index';
 
 export const TaskRoutes: Route[] = [
     {
-        path: 'tasks',
+        path: 'task',
         component: TaskComponent
     }
 ];
