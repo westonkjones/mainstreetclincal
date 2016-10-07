@@ -31,11 +31,11 @@ export class TaskComponent implements OnInit {
     getClinic(): Clinic {
         return this.clinic;
     }
-    addToStaff(user): void {
+    addToStaff(user: User): void {
         this.users.splice(this.users.indexOf(user), 1);
         this.staff.push(user);
     }
-    removeFromStaff(user): void {
+    removeFromStaff(user: User): void {
         this.staff.splice(this.staff.indexOf(user), 1);
         this.users.push(user);
     }
