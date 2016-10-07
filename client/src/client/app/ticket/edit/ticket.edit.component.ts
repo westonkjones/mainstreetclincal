@@ -11,7 +11,7 @@ import { TicketService } from '../ticket.service';
 })
 export class TicketEditComponent implements AfterViewChecked {
     @Input() ticket: Ticket;
-    @Output() deleteTicketEvent: EventEmitter<string> = new EventEmitter();
+    @Output() deleteTicketEvent: EventEmitter<any> = new EventEmitter();
     private title: string;
     private submitted: boolean;
     private successful: boolean;
