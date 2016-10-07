@@ -17,25 +17,20 @@
         </div>
     </div>
     <div [hidden]="clinic == null" class="row">
-        <div class="col-xs-4 text-right">
-            
-        </div>
-        <div class="col-xs-4 text-center">
+        <div class="text-center">
             <h2>Please select today's staff</h2>
-            <div class="col-md-4">
-                
+            <div class="col-xs-5">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let user of users; trackBy: trackByFn" (click)="this.addToStaff(user)">{{user.firstName}} {{user.lastName}}</li>
+                </ul>
             </div>
-            <div class="col-md-4">
-                <div class="glyphicon glyphicon-arrow-right"></div>
-                <div id="button-separator"></div>
-                <div class="glyphicon glyphicon-arrow-left"></div>
+            <div class="col-xs-2">
             </div>
-            <div class="col-md-4">
-                
+            <div class="col-xs-5">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let s of staff; trackBy: trackByFn" (click)="removeFromStaff(s)">{{s.firstName}} {{s.lastName}}</li>
+                </ul>
             </div>
-        </div>
-        <div class="col-xs-4 text-left">
-            
         </div>
     </div>
 </div>
