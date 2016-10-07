@@ -11,7 +11,7 @@ import { TicketService } from '../ticket.service';
 })
 export class TicketWidgetComponent {
     @Input() ticket: Ticket;
-    @Output() editTicketEvent: EventEmitter<string> = new EventEmitter();
+    @Output() editTicketEvent: EventEmitter<any> = new EventEmitter();
     constructor(private ticketService: TicketService) {}
     onSubmit() {
         this.ticketService.updateTicket(this.ticket);
