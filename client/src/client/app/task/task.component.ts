@@ -14,9 +14,12 @@ export class TaskComponent implements OnInit {
     private staffCount: number;
     constructor(private clinicService: ClinicService) {
         this.clinic = null;
-        this.staffCount = 0;
+        this.staffCount = 1;
     }
     ngOnInit(): void {
         this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+    }
+    addStaffMember(): void {
+        this.staffCount++;
     }
  }
