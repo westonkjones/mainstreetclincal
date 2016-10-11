@@ -22,4 +22,7 @@ export class TaskComponent implements OnInit {
     addStaffMember(): void {
         this.staffCount++;
     }
+    removeStaffMember(): void {
+        this.staffCount--;
+    }
  }
