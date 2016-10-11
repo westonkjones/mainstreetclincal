@@ -10,7 +10,9 @@ import { TaskListService } from './task.list.service';
 })
 export class TaskListComponent implements OnInit {
     private taskList: TaskList = null;
-    constructor(private taskListService: TaskListService) {}
+    constructor(private taskListService: TaskListService) {
+
+    }
     ngOnInit() {
         this.taskList = this.taskListService.getTaskList('today');
         console.log(this.taskList);

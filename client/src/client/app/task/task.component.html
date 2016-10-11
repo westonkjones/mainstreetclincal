@@ -1,11 +1,8 @@
 <div class="container">
-    <div [hidden]="clinic != null">
-        <div class="col-xs-4 text-right">
-            
-        </div>
-        <div class="col-xs-4 text-center">
-            <h2>Please select a clinic</h2>
-            <div class="heading-spacer"></div>
+    <div *ngIf="clinic == null">
+        <h2 class="text-center">Please select a clinic</h2>
+        <div class="heading-spacer"></div>
+        <div class="col-xs-4 col-xs-offset-4 text-center">
             <div class="form-group" id="clinic-select">
                 <select class="form-control" [(ngModel)]="clinic">
                     <option value="null"></option>
@@ -13,33 +10,52 @@
                 </select>
             </div>
         </div>
-        <div class="col-xs-4 text-left">
-            
+    </div>
+    <div *ngIf="clinic != null && staffCount == 0" class="text-center">
+        <h2 class="text-center">Please Select how many staff members are working today</h2>
+        <div class="heading-spacer"></div>
+        <div class="col-xs-1 col-xs-offset-4">
+            <button class="btn btn-default" (click)="staffCount = 1">1</button>
+        </div>
+        <div class="col-xs-1">
+            <button class="btn btn-default" (click)="staffCount = 2">2</button>
+        </div>
+        <div class="col-xs-1">
+            <button class="btn btn-default" (click)="staffCount = 3">3</button>
+        </div>
+        <div class="col-xs-1">
+            <button class="btn btn-default" (click)="staffCount = 4">4</button>
         </div>
     </div>
-    <div [hidden]="clinic == null">
-        <div class="col-xs-8 col-xs-offset-2 text-center"> 
-            <div class="row" id="staff-select">
-                <h2>Please select today's staff</h2>
-                <div class="heading-spacer"></div>
-                <div class="col-xs-5">
-                    <ul class="list-group">
-                        <li class="list-group-item" *ngFor="let user of users; trackBy: trackByFn" (click)="this.addToStaff(user)">{{user.firstName}} {{user.lastName}}</li>
-                    </ul>
-                </div>
-                <div class="col-xs-2">
-                </div>
-                <div class="col-xs-5">
-                    <ul class="list-group">
-                        <li class="list-group-item" *ngFor="let s of staff; trackBy: trackByFn" (click)="removeFromStaff(s)">{{s.firstName}} {{s.lastName}}</li>
-                    </ul>
-                </div>
+    <div *ngIf="clinic != null && staffCount > 0 && staff == null">
+        <h2 class="text-center">Please assign staff members to their assignments</h2>
+        <div class="heading-spacer"></div>
+        <div class="col-xs-6 col-xs-offset-3">
+            <div class="form-group" *ngIf="staffCount == 1">
+                <label for="ma1">MA1/MA2 Name:</label>
+                <input type="text" class="form-control" id="ma1" required>
             </div>
-            <div class="row">
-                <div class="col-xs-4 col-xs-offset-4 text-center">
-                    <a id="staff-ok-button" *ngIf="staff.length > 0" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></a>
-                </div>
+            <div class="form-group" *ngIf="staffCount > 1">
+                <label for="ma1">MA1 Name:</label>
+                <input type="text" class="form-control" id="ma1" required>
             </div>
+            <div class="form-group" *ngIf="staffCount > 1">
+                <label for="ma2">MA2 Name:</label>
+                <input type="text" class="form-control" id="ma2" required>
+            </div>
+            <div class="form-group" *ngIf="staffCount > 3">
+                <label for="frontDesk">MA3 Name:</label>
+                <input type="text" class="form-control" id="ma3" required>
+            </div>
+            <div class="form-group" *ngIf="staffCount > 2">
+                <label for="frontDesk">Front Desk Name:</label>
+                <input type="text" class="form-control" id="frontDesk" required>
+            </div>
+            <button class="btn btn-default">Submit</button>
         </div>
+    </div>
+    <br>
+    <div *ngIf="clinic != null && staffCount > 0 && staff != null">
+        <h1>Render Task List</h1>
     </div>
 </div>
