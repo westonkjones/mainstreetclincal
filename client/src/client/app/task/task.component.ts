@@ -11,12 +11,10 @@ import { TaskListService } from './list/task.list.service';
 })
 export class TaskComponent implements OnInit {
     private taskList: TaskList;
-    private clinic: Clinic;
     private clinics: Clinic[] = [];
     private staffCount: number;
     constructor(private clinicService: ClinicService, private taskListService: TaskListService) {
         this.taskList = null;
-        this.clinic = null;
         this.staffCount = 1;
     }
     ngOnInit(): void {
