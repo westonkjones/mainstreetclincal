@@ -9,6 +9,7 @@ import { TaskListComponent } from './index';
     styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
+    private date: 'October 11, 2016';
     private clinics: Clinic[] = [];
     private clinic: Clinic;
     private staffCount: number;

@@ -1,10 +1,14 @@
 <div class="container">
-    <div *ngIf="clinic == null" class="form-group form-inline">
-        <label>Clinic: </label>
+    <div *ngIf="clinic == null" class="col-xs-6 col-xs-offset-3 form-group text-center">
+        <h2>Today is {{date}}</h2>
+        <h2><small>Please select clinic for today</small></h2>
         <select class="form-control" [(ngModel)]="clinic">
             <option [ngValue]="null" selected>Please Select a Clinic</option>
             <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="c">{{c.name}}</option>
         </select>
+        <h2>Or</h2>
+        <br>
+        <button class="btn btn-success">Create a clinic</button>
     </div>
     <div *ngIf="clinic != null">
         <h1>{{clinic.name}}</h1>
