@@ -10,25 +10,18 @@ import { TaskListService } from './list/task.list.service';
     styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
-    private date:string;
     private taskList: TaskList;
     private clinic: Clinic;
     private clinics: Clinic[] = [];
     private staffCount: number;
     constructor(private clinicService: ClinicService, private taskListService: TaskListService) {
+        this.taskList = null;
         this.clinic = null;
         this.staffCount = 1;
     }
     ngOnInit(): void {
         this.clinicService.getClinics().then(clinics => this.clinics = clinics);
-        this.taskListService.getTaskList('October 9, 2016').then((taskList) => {
-            if(taskList === null || taskList === undefined) {
-                this.taskList = new TaskList('October 9, 2016');
-            } else {
-                this.taskList = taskList;
-            }
-            console.log(this.taskList);
-        });
+        this.taskListService.getTaskList('October 9, 2016').then(taskList => this.taskList = taskList);
     }
     addStaffMember(): void {
         this.staffCount++;

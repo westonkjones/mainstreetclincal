@@ -36,6 +36,10 @@ export class TaskListService {
     }
     getTaskList(date: string): Promise<TaskList> {
         var t = this.taskLists.filter(taskList => taskList.date === date)[0];
+        if(t === null || t === undefined)
+            t = new TaskList(date);
+        console.log('returning from service');
+        console.log(t);
         return Promise.resolve(t);
     }
 }
