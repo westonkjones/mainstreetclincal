@@ -9,6 +9,7 @@
     <div *ngIf="clinic != null">
         <h1>{{clinic.name}}</h1>
         <div class="heading-spacer"></div>
+        <div class="row">
         <div *ngIf="staffCount >= 1" class="col-sm-3">
             <h2 class="text-center">
                 <span *ngIf="staffCount > 1" (click)="removeStaffMember()" class="pull-left">-</span>
@@ -34,6 +35,12 @@
         </div>
         <div *ngIf="staffCount < 4" class="col-sm-3">
             <h2 (click)="addStaffMember()">+</h2>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <button class="btn btn-default">Submit</button>
+            </div>
         </div>
     </div>
 </div>
