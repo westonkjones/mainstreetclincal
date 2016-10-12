@@ -21,7 +21,7 @@ export class TaskListService {
             t = new TaskList(date);
             this.taskLists.push(t);
         }
-        
+
         return Promise.resolve(t);
     }
 }

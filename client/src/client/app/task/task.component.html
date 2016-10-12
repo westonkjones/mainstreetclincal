@@ -1,7 +1,7 @@
 <div class="container">
     <div *ngIf="taskList != null">
         <div *ngIf="taskList.clinic == null" class="col-xs-6 col-xs-offset-3 form-group text-center">
-            <h2>Today is {{taskList?.date}}</h2>
+            <h2>Today is {{taskList.date}}</h2>
             <h2 class="pull-left"><small>Please select clinic for today</small></h2>
             <select class="form-control" [(ngModel)]="taskList.clinic">
                 <option [ngValue]="null" selected>Please Select a Clinic</option>
@@ -12,7 +12,7 @@
             <button class="btn btn-success">Create a clinic</button>
         </div>
         <div *ngIf="taskList.clinic != null">
-            <h1>{{taskList?.clinic.name}}<br><small>{{taskList?.clinic.date}}</small></h1>
+            <h1>{{taskList.clinic.name}}<br><small>{{taskList.date}}</small></h1>
         <div class="heading-spacer"></div>
         <div class="row">
         <div *ngIf="taskList.staff.length >= 1" class="col-sm-3">
