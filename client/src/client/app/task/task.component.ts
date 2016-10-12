@@ -9,12 +9,13 @@ import { TaskListComponent } from './index';
     styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
-    private date: 'October 11, 2016';
+    private date:string;
     private clinics: Clinic[] = [];
     private clinic: Clinic;
     private staffCount: number;
     private staff: string[] = [];
     constructor(private clinicService: ClinicService) {
+        this.date = 'October 11, 2016';
         this.clinic = null;
         this.staffCount = 1;
     }
