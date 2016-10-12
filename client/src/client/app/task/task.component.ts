@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Clinic, ClinicService } from '../clinic/index';
-import { TaskListComponent } from './index';
+import { TaskList } from './list/task.list';
+import { TaskListService } from './list/task.list.service';
 
 @Component({
     moduleId: module.id,
@@ -10,17 +11,24 @@ import { TaskListComponent } from './index';
 })
 export class TaskComponent implements OnInit {
     private date:string;
-    private clinics: Clinic[] = [];
+    private taskList: TaskList;
     private clinic: Clinic;
+    private clinics: Clinic[] = [];
     private staffCount: number;
-    private staff: string[] = [];
-    constructor(private clinicService: ClinicService) {
-        this.date = 'October 11, 2016';
+    constructor(private clinicService: ClinicService, private taskListService: TaskListService) {
         this.clinic = null;
         this.staffCount = 1;
     }
     ngOnInit(): void {
         this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+        this.taskListService.getTaskList('October 9, 2016').then((taskList) => {
+            if(taskList === null || taskList === undefined) {
+                this.taskList = new TaskList('October 9, 2016');
+            } else {
+                this.taskList = taskList;
+            }
+            console.log(this.taskList);
+        });
     }
     addStaffMember(): void {
         this.staffCount++;
