@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Clinic, ClinicService } from '../clinic/index';
 import { TaskList } from './list/task.list';
 import { TaskListService } from './list/task.list.service';
+import { StaffMember } from './task.staffMember';
 
 @Component({
     moduleId: module.id,
@@ -12,19 +13,18 @@ import { TaskListService } from './list/task.list.service';
 export class TaskComponent implements OnInit {
     private taskList: TaskList;
     private clinics: Clinic[] = [];
-    private staffCount: number;
     constructor(private clinicService: ClinicService, private taskListService: TaskListService) {
         this.taskList = null;
-        this.staffCount = 1;
     }
     ngOnInit(): void {
         this.clinicService.getClinics().then(clinics => this.clinics = clinics);
         this.taskListService.getTaskList('October 9, 2016').then(taskList => this.taskList = taskList);
     }
     addStaffMember(): void {
-        this.staffCount++;
+        var staffMember = new StaffMember();
+        this.taskList.staff.push(staffMember);
     }
     removeStaffMember(): void {
-        this.staffCount--;
+        this.taskList.staff.splice(this.taskList.staff.length - 1, 1);
     }
  }
