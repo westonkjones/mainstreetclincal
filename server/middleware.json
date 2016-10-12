@@ -43,24 +43,23 @@
 "files": {
     "loopback#static": [{
         "name": "client",
-        "paths": ["/client"],
+        "paths": ["/", "/index.html"],
         "params": "$!../client/dist/dev"
-    },
-    {
-        "name": "node_module",
-        "paths": ["/node_modules"],
-        "params": "$!../client/node_modules"
-    },
-    {
-        "name": "css",
+      },
+      {
+        "name": "app",
+        "paths": ["/client/app/"],
+        "params": "$!../client/dist/dev/app"
+      },      {
+        "name": "styles",
         "paths": ["/css"],
         "params": "$!../client/dist/dev/css"
-    },
-    {
-        "name": "app",
-        "paths": ["/app"],
-        "params": "$!../client/dist/dev/app"
-    }]
+      },
+      {
+        "name": "node_modules",
+        "paths": ["/node_modules"],
+        "params": "$!../client/node_modules"
+      }]
 },
   "final": {
     "loopback#urlNotFound": {}
