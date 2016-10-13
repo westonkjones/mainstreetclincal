@@ -1,14 +1,3 @@
-<template #createModal let-c="close">
-    <div class="modal-header">
-        <span class="pull-right">
-            <a class="glyphicon glyphicon-remove" (click)="c()"></a>
-        </span>
-        <h2>{{create.title}}</h2>
-    </div>
-    <div class="modal-body">
-        <ms-create-clinic #create (submit)="c()"></ms-create-clinic>
-    </div>
-</template>
 <div class="container">
     <h2 class="text-center">Today is {{taskList?.date}}</h2>
     <div *ngIf="taskList != null">
@@ -20,7 +9,7 @@
             </select>
             <h2>Or</h2>
             <br>
-            <a class="btn btn-success" (click)="openCreateModal(createModal)">Create a clinic</a>
+            <a [routerLink]="['/clinics/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success">Create a clinic</a>
         </div>
         <div *ngIf="taskList.clinic != null">
             <h1>{{taskList.clinic.name}}</h1>
