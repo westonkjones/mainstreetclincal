@@ -37,7 +37,6 @@ export class TaskComponent implements OnInit {
         this.taskList.staff.splice(this.taskList.staff.length - 1, 1);
     }
     openCreateModal(content: any) {
-        console.log('opening create modal');
         this.modalService.open(content);
     }
  }
