@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import { ClinicCreateComponent } from './create/clinic.create.component';
 import { ClinicService } from './clinic.service';
+import { ClinicTaskCreateComponent } from './task/create/clinic.task.create.component';
 
 @NgModule({
     imports: [FormsModule, CommonModule],
-    declarations: [ClinicCreateComponent],
+    declarations: [ClinicCreateComponent, ClinicTaskCreateComponent],
     exports: [ClinicCreateComponent],
     providers: [ClinicService],
 })

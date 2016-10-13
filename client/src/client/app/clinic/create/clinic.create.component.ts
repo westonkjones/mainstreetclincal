@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Clinic } from '../clinic';
 import { ClinicService } from '../clinic.service';
@@ -14,11 +15,14 @@ export class ClinicCreateComponent {
     private model: Clinic;
     private submitted: boolean;
     private successful: boolean;
-    constructor(private clinicService: ClinicService) {
+    constructor(private clinicService: ClinicService, private modalService: NgbModal) {
         this.title = 'Create a Clinic';
         this.model = new Clinic();
         this.submitted = false;
         this.successful = false;
+    }
+    openCreateModal(content: any) {
+        this.modalService.open(content);
     }
     onSubmit() {
         this.submitted = true;
