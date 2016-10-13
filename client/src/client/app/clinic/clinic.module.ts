@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 
+import { ClinicCreateComponent } from './create/clinic.create.component';
+
 @NgModule({
     imports: [],
-    exports: [],
+    exports: [ClinicCreateComponent],
     declarations: [],
     providers: [],
 })
