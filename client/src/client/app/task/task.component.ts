@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Clinic, ClinicService } from '../clinic/index';
 import { TaskList } from './list/task.list';
@@ -7,13 +8,14 @@ import { StaffMember } from './task.staffMember';
 
 @Component({
     moduleId: module.id,
+    selector: 'ms-tasks',
     templateUrl: 'task.component.html',
     styleUrls: ['task.component.css']
 })
 export class TaskComponent implements OnInit {
     private taskList: TaskList;
     private clinics: Clinic[] = [];
-    constructor(private clinicService: ClinicService, private taskListService: TaskListService) {
+    constructor(private clinicService: ClinicService, private taskListService: TaskListService, private modalService: NgbModal) {
         this.taskList = null;
     }
     ngOnInit(): void {
@@ -33,5 +35,9 @@ export class TaskComponent implements OnInit {
     }
     removeStaffMember(): void {
         this.taskList.staff.splice(this.taskList.staff.length - 1, 1);
+    }
+    openCreateModal(content: any) {
+        console.log('opening create modal');
+        this.modalService.open(content);
     }
  }

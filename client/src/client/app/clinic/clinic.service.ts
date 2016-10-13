@@ -22,4 +22,8 @@ export class ClinicService {
     getClinics(): Promise<Clinic[]> {
         return Promise.resolve(this.clinics);
     }
+    addClinic(clinic: Clinic) {
+        this.clinics.push(clinic);
+        return true;
+    }
 }

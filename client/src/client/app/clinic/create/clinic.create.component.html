@@ -1,0 +1,11 @@
+<div *ngIf="submitted && !successful" id="submitErrorAlert" class="alert alert-danger fadeIn text-center"> 
+    There was an error submitting this clinic. Unable to create a clinic at this time.
+</div>
+<form (ngSubmit)="onSubmit()" #clinicCreateForm="ngForm">
+    <div class="form-group">
+        <label for="name">Clinic Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name=ngModel>
+    </div>
+    
+    <button type="submit" class="btn btn-default" [disabled]="!clinicCreateForm.form.valid">Submit</button>
+</form>
