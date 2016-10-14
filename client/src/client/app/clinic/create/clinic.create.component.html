@@ -6,7 +6,7 @@
         <h2>{{create.title}}</h2>
     </div>
     <div class="modal-body">
-        <ms-create-task #create (submit)="c(); getTasks()"></ms-create-task>
+        <ms-create-task [(clinic)]="model" #create (submit)="c();"></ms-create-task>
     </div>
 </template>
 <div class="container">
@@ -31,6 +31,14 @@
                         <th></th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr *ngFor="let task of model.tasks; trackBy: trackByFn">
+                        <td>{{task.description}}</td>
+                        <td>{{task.category}}</td>
+                        <td><span *ngIf="task.ma1">MA1 </span><span *ngIf="task.ma2">MA2 </span><span *ngIf="task.ma3">MA3 </span><span *ngIf="task.frontDesk">Front Desk</span></td>
+                        <td>{{task.repeats}}</td>
+                    </tr>
+                </tbody>
             </table>
             <span><a (click)="openCreateModal(createModal)">Add task...</a></span>
         </div>
