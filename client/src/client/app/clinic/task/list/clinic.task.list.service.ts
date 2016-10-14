@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 
-import { TaskList } from './task.list';
+import { ClinicTaskList } from '../../index';
 
 @Injectable()
-export class TaskListService {
-    public taskLists: TaskList[] = [];
+export class ClinicTaskListService {
+    public taskLists: ClinicTaskList[] = [];
     constructor() {
-        var tl1 = new TaskList('October 11, 2016');
+        var tl1 = new ClinicTaskList('October 11, 2016');
         this.taskLists.push(tl1);
 
-        var tl2 = new TaskList('October 12, 2016');
+        var tl2 = new ClinicTaskList('October 12, 2016');
         this.taskLists.push(tl2);
     }
-    getTaskLists(): Promise<TaskList[]> {
+    getTaskLists(): Promise<ClinicTaskList[]> {
         return Promise.resolve(this.taskLists);
     }
-    getTaskList(date: string): Promise<TaskList> {
+    getTaskList(date: string): Promise<ClinicTaskList> {
         var t = this.taskLists.filter(taskList => taskList.date === date)[0];
         if(t === null || t === undefined) {
-            t = new TaskList(date);
+            t = new ClinicTaskList(date);
             this.taskLists.push(t);
         }
 

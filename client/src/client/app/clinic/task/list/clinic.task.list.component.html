@@ -9,7 +9,7 @@
             </select>
             <h2>Or</h2>
             <br>
-            <a [routerLink]="['/clinics/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success">Create a clinic</a>
+            <a [routerLink]="['/clinic/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success">Create a clinic</a>
         </div>
         <div *ngIf="taskList.clinic != null">
             <h1>{{taskList.clinic.name}}</h1>
@@ -20,7 +20,6 @@
                 <span *ngIf="taskList.staff.length > 1" (click)="removeStaffMember()" class="pull-left">-</span>
                 MA1<span *ngIf="taskList.staff.length == 1">/MA2</span>
             </h2>
-            <input type="text" class="form-control">
             <div class="well">
             </div>
         </div>

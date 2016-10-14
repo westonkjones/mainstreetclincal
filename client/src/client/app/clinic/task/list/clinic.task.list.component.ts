@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Clinic, ClinicService } from '../clinic/index';
-import { TaskList } from './list/task.list';
-import { TaskListService } from './list/task.list.service';
-import { StaffMember } from './task.staffMember';
+import { Clinic, ClinicService, ClinicTaskList, ClinicTaskListStaff } from '../../index';
+import { ClinicTaskListService } from './clinic.task.list.service';
+
 
 @Component({
     moduleId: module.id,
-    selector: 'ms-tasks',
-    templateUrl: 'task.component.html',
-    styleUrls: ['task.component.css']
+    selector: 'ms-task-list',
+    templateUrl: 'clinic.task.list.component.html',
+    styleUrls: ['clinic.task.list.component.css']
 })
-export class TaskComponent implements OnInit {
-    private taskList: TaskList;
+export class ClinicTaskListComponent implements OnInit {
+    private taskList: ClinicTaskList;
     private clinics: Clinic[] = [];
-    constructor(private clinicService: ClinicService, private taskListService: TaskListService, private modalService: NgbModal) {
+    constructor(private clinicService: ClinicService, private taskListService: ClinicTaskListService, private modalService: NgbModal) {
         this.taskList = null;
     }
     ngOnInit(): void {
@@ -23,7 +22,7 @@ export class TaskComponent implements OnInit {
         this.taskListService.getTaskList('October 9, 2016').then(taskList => this.taskList = taskList);
     }
     addStaffMember(): void {
-        var staffMember = new StaffMember();
+        var staffMember = new ClinicTaskListStaff();
         if(this.taskList.staff.length === 1)
             staffMember.role = 'MA2';
         if(this.taskList.staff.length === 2)

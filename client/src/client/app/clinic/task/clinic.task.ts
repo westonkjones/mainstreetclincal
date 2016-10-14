@@ -1,4 +1,4 @@
-export class Task {
+export class ClinicTask {
     description: string = '';
     ma1: boolean = false;
     ma2: boolean = false;

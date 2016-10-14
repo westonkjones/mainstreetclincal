@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-import { ClinicCreateComponent } from './create/clinic.create.component';
-import { ClinicService } from './clinic.service';
-import { ClinicTaskCreateComponent } from './task/create/clinic.task.create.component';
+import { ClinicCreateComponent, ClinicTaskCreateComponent, ClinicTaskListComponent, ClinicService, ClinicTaskListService } from './index';
 
 @NgModule({
-    imports: [FormsModule, CommonModule],
-    declarations: [ClinicCreateComponent, ClinicTaskCreateComponent],
-    exports: [ClinicCreateComponent],
-    providers: [ClinicService],
+    imports: [FormsModule, CommonModule, RouterModule],
+    declarations: [ClinicCreateComponent, ClinicTaskCreateComponent, ClinicTaskListComponent],
+    exports: [ClinicCreateComponent, ClinicTaskListComponent],
+    providers: [ClinicService, ClinicTaskListService],
 })
 export class ClinicModule { }

@@ -1,11 +1,21 @@
 import { Routes } from '@angular/router';
 
 import { ClinicCreateComponent } from './create/clinic.create.component';
+import { ClinicTaskListComponent } from './task/list/clinic.task.list.component';
 
 export const ClinicRoutes: Routes = [
     {
-        path: 'clinics',
+        path: 'clinic',
         children: [
+            {
+                path: 'task',
+                children: [
+                    {
+                        path: 'list',
+                        component: ClinicTaskListComponent
+                    }
+                ]
+            },
             {
                 path: 'create',
                 component: ClinicCreateComponent

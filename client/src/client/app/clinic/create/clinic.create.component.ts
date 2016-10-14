@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Clinic } from '../clinic';
-import { ClinicService } from '../clinic.service';
+import { Clinic, ClinicService } from '../index';
 
 @Component({
     moduleId: module.id,

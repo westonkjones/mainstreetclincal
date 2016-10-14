@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Task } from '../clinic.task';
-import { Clinic } from '../../clinic';
+import { Clinic, ClinicTask } from '../../index';
 
 @Component({
     moduleId: module.id,
@@ -11,9 +10,9 @@ import { Clinic } from '../../clinic';
 })
 export class ClinicTaskCreateComponent {
     @Input('clinic') clinic: Clinic = null;
-    model: Task;
+    model: ClinicTask;
     constructor() {
-        this.model = new Task();
+        this.model = new ClinicTask();
     }
     onSubmit(): void {
         this.clinic.tasks.push(this.model);

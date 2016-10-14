@@ -1,15 +1,15 @@
-import { Clinic } from '../../clinic/clinic';
-import { StaffMember } from '../task.staffMember';
+import { Clinic, ClinicTaskListStaff } from '../../index';
 
-export class TaskList {
+export class ClinicTaskList {
     date: string;
     clinic: Clinic;
-    staff: StaffMember[] = [];
+    staff: ClinicTaskListStaff[];
     constructor(date:string) {
         this.date = date;
         this.clinic = null;
+        this.staff = [];
 
-        var staffMember = new StaffMember();
+        var staffMember = new ClinicTaskListStaff();
         staffMember.role = 'MA1';
         this.staff.push(staffMember);
     }
