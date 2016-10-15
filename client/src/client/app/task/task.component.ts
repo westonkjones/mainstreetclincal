@@ -23,15 +23,18 @@ export class TaskComponent implements OnInit {
     addStaffMember(): void {
         var staffMember = new StaffMember();
         if(this.taskList.staff.length === 1)
-            staffMember.role = 'MA2';
+            staffMember.role = 'Staff';
         if(this.taskList.staff.length === 2)
-            staffMember.role = 'Front Desk';
+            staffMember.role = 'Staff';
         if(this.taskList.staff.length === 3)
-            staffMember.role = 'MA3';
+            staffMember.role = 'Staff';
 
         this.taskList.staff.push(staffMember);
     }
     removeStaffMember(): void {
         this.taskList.staff.splice(this.taskList.staff.length - 1, 1);
+    }
+    submit(): void{
+        console.log(this.taskList);
     }
  }

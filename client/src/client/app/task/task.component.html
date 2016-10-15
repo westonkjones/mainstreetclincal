@@ -21,21 +21,25 @@
                 MA1<span *ngIf="taskList.staff.length == 1">/MA2</span>
             </h2>
             <div class="well">
+                <input [(ngModel)]="taskList.staff[0].name" placeholder="Name" />
             </div>
         </div>
         <div *ngIf="taskList.staff.length >= 2" class="col-sm-3">
             <h2 class="text-center">MA2</h2>
             <div class="well">
+                <input [(ngModel)]="taskList.staff[1].name" placeholder="Name" />
             </div>
         </div> 
         <div *ngIf="taskList.staff.length == 4" class="col-sm-3">
             <h2 class="text-center">MA3</h2>
             <div class="well">
+                <input [(ngModel)]="taskList.staff[2].name" placeholder="Name" />
             </div>
         </div>
         <div *ngIf="taskList.staff.length >= 3" class="col-sm-3">
             <h2 class="text-center">Front Desk</h2>
             <div class="well">
+                <input [(ngModel)]="taskList.staff[3].name" placeholder="Name" />
             </div>
         </div>
         <div *ngIf="taskList.staff.length < 4" class="col-sm-3">
@@ -44,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-xs-3">
-                <button class="btn btn-default">Submit</button>
+                <button class="btn btn-default" (click)="submit()">Submit</button>
             </div>
         </div>
     </div>
