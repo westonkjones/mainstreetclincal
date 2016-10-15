@@ -24,11 +24,11 @@ export class ClinicTaskListComponent implements OnInit {
     addStaffMember(): void {
         var staffMember = new ClinicTaskListStaff();
         if(this.taskList.staff.length === 1)
-            staffMember.role = 'MA2';
+            staffMember.role = 'Staff';
         if(this.taskList.staff.length === 2)
-            staffMember.role = 'Front Desk';
+            staffMember.role = 'Staff';
         if(this.taskList.staff.length === 3)
-            staffMember.role = 'MA3';
+            staffMember.role = 'Staff';
 
         this.taskList.staff.push(staffMember);
     }
@@ -37,5 +37,7 @@ export class ClinicTaskListComponent implements OnInit {
     }
     openCreateModal(content: any) {
         this.modalService.open(content);
+    submit(): void{
+        console.log(this.taskList);
     }
  }
