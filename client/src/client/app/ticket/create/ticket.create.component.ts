@@ -25,7 +25,7 @@ export class TicketCreateComponent implements OnInit {
         this.successful = false;
     }
     ngOnInit() {
-        this.userService.getUsers().then(users => this.users = users;);
+        this.userService.getUsers().then(users => this.users = users);
     }
     onSubmit() {
         this.submitted = true;
