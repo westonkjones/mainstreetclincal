@@ -1,4 +1,4 @@
-export class User {
+export class TicketUser {
     firstName: string;
     lastName: string;
     fullName: string;

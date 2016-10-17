@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter, AfterViewChecked, OnInit } from
 
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
-import { User } from '../../user/index';
-import { UserService } from '../../user/user.service';
+import { TicketUser } from '../user/ticket.user';
+import { TicketUserService } from '../user/ticket.user.service';
 
 @Component({
     moduleId: module.id,
@@ -14,12 +14,12 @@ import { UserService } from '../../user/user.service';
 export class TicketEditComponent implements AfterViewChecked, OnInit {
     @Input() ticket: Ticket;
     @Output() deleteTicketEvent: EventEmitter<any> = new EventEmitter();
-    users: User[];
+    users: TicketUser[];
     private title: string;
     private submitted: boolean;
     private successful: boolean;
     private originalTicket: Ticket;
-    constructor(private ticketService: TicketService, private userService: UserService) {
+    constructor(private ticketService: TicketService, private userService: TicketUserService) {
         this.users = [];
         this.title = 'Edit Ticket';
         this.submitted = false;

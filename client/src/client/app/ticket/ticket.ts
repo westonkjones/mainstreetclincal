@@ -1,9 +1,9 @@
-import { User } from '../user/user';
+import { TicketUser } from './user/ticket.user';
 
 export class Ticket {
     public id: number;
-    public user: User;
-    public nextStop: User;
+    public user: TicketUser;
+    public nextStop: TicketUser;
     public title: string;
     public creator: string;
     public description: string;

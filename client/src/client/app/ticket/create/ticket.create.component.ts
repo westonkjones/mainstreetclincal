@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Ticket } from '../ticket';
 import { TicketService } from '../ticket.service';
-import { User } from '../../user/index';
-import { UserService } from '../../user/user.service';
+import { TicketUser } from '../user/ticket.user';
+import { TicketUserService } from '../user/ticket.user.service';
 
 @Component({
     moduleId: module.id,
@@ -12,12 +12,12 @@ import { UserService } from '../../user/user.service';
     styleUrls: ['ticket.create.component.css']
 })
 export class TicketCreateComponent implements OnInit {
-    users: User[];
+    users: TicketUser[];
     private title: string;
     private model: Ticket;
     private submitted: boolean;
     private successful: boolean;
-    constructor(private ticketService: TicketService, private userService: UserService) {
+    constructor(private ticketService: TicketService, private userService: TicketUserService) {
         this.users = [];
         this.title = 'Submit a Ticket';
         this.model = new Ticket();
