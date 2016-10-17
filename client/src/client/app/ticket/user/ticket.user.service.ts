@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TicketUser } from './ticket.user';
+
+import { TicketUser } from '../index';
 
 @Injectable()
 export class TicketUserService {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { TicketUser } from '../ticket.user';
+import { TicketUser } from '../../index';
 import { TicketUserService } from '../ticket.user.service';
 
 @Component({

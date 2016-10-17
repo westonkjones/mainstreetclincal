@@ -1,4 +1,4 @@
-import { TicketUser } from './user/ticket.user';
+import { TicketUser } from './index';
 
 export class Ticket {
     public id: number;
