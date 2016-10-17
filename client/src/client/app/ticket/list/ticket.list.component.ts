@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ticket } from './ticket';
-import { TicketService } from './ticket.service';
+import { Ticket } from '../ticket';
+import { TicketService } from '../ticket.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
     templateUrl: 'ticket.component.html',
     styleUrls: ['ticket.component.css'],
 })
-export class TicketComponent implements OnInit {
+export class TicketListComponent implements OnInit {
     private tickets: Ticket[] = [];
     constructor(private ticketService: TicketService, private modalService: NgbModal) {}
     ngOnInit(): void {
