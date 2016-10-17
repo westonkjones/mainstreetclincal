@@ -6,14 +6,15 @@ import { TicketListComponent } from './index';
 import { TicketCreateComponent } from './create/ticket.create.component';
 import { TicketEditComponent } from './edit/ticket.edit.component';
 import { TicketWidgetComponent } from './widget/ticket.widget.component';
+import { TicketUserCreateComponent } from './user/create/ticket.user.create.component';
 import { TicketService } from './ticket.service';
-import { UserService } from '../user/user.service';
+import { TicketUserService } from './user/ticket.user.service';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 @NgModule({
     imports: [FormsModule, CommonModule, Ng2AutoCompleteModule],
-    declarations: [TicketListComponent, TicketCreateComponent, TicketEditComponent, TicketWidgetComponent],
+    declarations: [TicketListComponent, TicketCreateComponent, TicketEditComponent, TicketWidgetComponent, TicketUserCreateComponent],
     exports: [TicketListComponent, TicketWidgetComponent],
-    providers: [TicketService, UserService]
+    providers: [TicketService, TicketUserService]
 })
 export class TicketModule {}

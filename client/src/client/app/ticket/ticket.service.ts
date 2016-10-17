@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 
 import { Ticket } from './ticket';
-import { User } from '../user/user';
+import { TicketUser } from './user/ticket.user';
 
 @Injectable()
 export class TicketService {
     public tickets: Ticket[] = [];
     constructor() {
-        var u1 = new User();
+        var u1 = new TicketUser();
         u1.firstName = 'Wes';
         u1.lastName = 'Jones';
         u1.fullName = 'Wes Jones';
 
-        var u2 = new User();
+        var u2 = new TicketUser();
         u2.firstName = 'Jason';
         u2.lastName = 'Wergin';
         u2.fullName = 'Jason Wergin';
