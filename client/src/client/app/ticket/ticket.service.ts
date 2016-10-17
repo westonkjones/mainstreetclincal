@@ -9,7 +9,6 @@ export class TicketService {
         var t1 = new Ticket();
         t1.id = 1;
         t1.created = '1/1/31';
-        t1.user = 'Wes Jones';
         t1.creator = 'Jason Wergin';
         t1.description = 'To bodly go where no one has gone before';
         t1.nextStop = 'Emma Dean';
@@ -18,7 +17,6 @@ export class TicketService {
         var t2 = new Ticket();
         t2.id = 2;
         t2.created = '2/2/31';
-        t2.user = 'Turtle';
         t2.creator = 'Nip Mouse';
         t2.description = 'play with nip mouse';
         t2.nextStop = 'Yertle';
@@ -28,7 +26,6 @@ export class TicketService {
         var t3 = new Ticket();
         t3.id = 3;
         t3.created = '3/3/31';
-        t3.user = 'Emma Dean';
         t3.creator = 'Emma Dean';
         t3.description = 'Study';
         t3.nextStop = 'Wes Jones';
