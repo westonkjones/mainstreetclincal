@@ -15,8 +15,22 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>
+                <th>Status</th>
+                <th>User</th>
+                <th>Description</th>
+                <th>Next Stop</th>
+                <th></th>
             </tr>
-        </thead>    
+        </thead>
+        <tbody>
+        <tr *ngFor="let ticket of tickets; let i = index; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+        </tr>   
+        </tbody>
     </table>
 </div>

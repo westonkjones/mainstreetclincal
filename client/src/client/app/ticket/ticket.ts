@@ -3,7 +3,7 @@ import { User } from '../user/user';
 export class Ticket {
     public id: number;
     public user: User;
-    public nextStop: string;
+    public nextStop: User;
     public title: string;
     public creator: string;
     public description: string;
