@@ -19,4 +19,7 @@ export class UserService {
     getUsers(): Promise<User[]> {
         return Promise.resolve(this.users);
     }
+    addUser(user: User) {
+        this.users.push(user);
+    }
 }
