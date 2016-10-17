@@ -10,31 +10,13 @@
     </div>
 </template>
 <div class="container-fluid">
-   <div class="col-md-4 col-md-offset-1">
-       <h2>Open Tickets <span class="pull-right"><a class="btn btn-success btn-sm" (click)="openCreateModal(createModal)"><span class="glyphicon glyphicon-plus"></span> Open A Ticket</a></span></h2>
-       <div class="well">
-           <div *ngFor="let ticket of tickets; trackBy: trackByFn">
-               <template #editModal let-c="close">
-                    <div class="modal-header">
-                        <span class="pull-right">
-                            <a class="glyphicon glyphicon-remove" (click)="c(); getTickets()"></a>
-                        </span>
-                        <h2>{{edit.title}}</h2>
-                    </div>
-                    <div class="modal-body">
-                        <ms-edit-ticket #edit (submit)="c();" (deleteTicketEvent)="getTickets()" [ticket]=ticket></ms-edit-ticket>
-                    </div>
-                </template>
-                <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'OPEN'" (editTicketEvent)="openEditModal(editModal)"></ms-ticket-widget>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-md-offset-1">
-        <h2>Closed Tickets</h2>
-        <div class="well">
-            <div *ngFor="let ticket of tickets; trackBy: trackByFn">
-                <ms-ticket-widget [ticket]="ticket" *ngIf="ticket.status == 'CLOSED'"></ms-ticket-widget>
-            </div>
-        </div>
-    </div>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+            </tr>
+        </thead>    
+    </table>
 </div>
