@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
 
-import { TicketComponent } from './ticket.component';
+import { TicketListComponent } from './list/ticket.list.component';
 import { TicketCreateComponent } from './create/ticket.create.component';
 
 export const TicketRoutes: Routes = [
     {
-        path: 'tickets',
+        path: 'ticket',
         children: [
             {
-                path: '',
-                component: TicketComponent
+                path: 'list',
+                component: TicketListComponent
             },
             {
                 path: 'create',
