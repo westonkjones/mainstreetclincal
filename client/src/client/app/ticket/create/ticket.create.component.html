@@ -3,11 +3,11 @@
 </div>  
 <form (ngSubmit)="onSubmit()" #ticketCreateForm="ngForm">
     <div class="form-group">
-        <label for="user">User</label>
+        <label for="user">User</label><br>
         <input type="text" class="form-control" required auto-complete [(ngModel)]="model.user" [source]="users" display-property-name="fullName" name="user">
     </div>
     <div class="form-group">
-        <label for="nextStop">Next Stop User</label>
+        <label for="nextStop">Next Stop User</label><br>
         <input type="text" class="form-control" required auto-complete [(ngModel)]="model.nextStop" [source]="users" display-property-name="fullName" name="nextStop">
     </div>
     <div class="form-group">
