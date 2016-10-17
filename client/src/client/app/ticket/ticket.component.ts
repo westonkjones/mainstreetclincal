@@ -16,13 +16,13 @@ export class TicketComponent implements OnInit {
     ngOnInit(): void {
         this.getTickets();
     }
-    openCreateModal(content: any) {
-        this.modalService.open(content);
-    }
-    openEditModal(content: any) {
+    openModal(content: any, ticket: Ticket) {
         this.modalService.open(content);
     }
     getTickets(): void {
         this.ticketService.getTickets().then(tickets => this.tickets = tickets);
+    }
+    deleteTicket(ticket: Ticket) {
+        this.ticketService.deleteTicket(ticket);
     }
 }
