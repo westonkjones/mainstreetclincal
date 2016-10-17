@@ -4,22 +4,22 @@
 <form (ngSubmit)="onSubmit()" #ticketCreateForm="ngForm">
     <div class="form-group">
         <label for="user">User</label><br>
-        <input type="text" class="form-control" required auto-complete [(ngModel)]="model.user" [source]="users" display-property-name="fullName" name="user">
+        <input type="text" class="form-control" required auto-complete [(ngModel)]="ticket.user" [source]="users" display-property-name="fullName" name="user">
     </div>
     <div class="form-group">
         <label for="nextStop">Next Stop User</label><br>
-        <input type="text" class="form-control" required auto-complete [(ngModel)]="model.nextStop" [source]="users" display-property-name="fullName" name="nextStop">
+        <input type="text" class="form-control" required auto-complete [(ngModel)]="ticket.nextStop" [source]="users" display-property-name="fullName" name="nextStop">
     </div>
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title=ngModel>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="ticket.title" name="title" #title=ngModel>
         <div [hidden]="title.untouched || title.valid" class="alert alert-danger">
             A title for this ticket is required
         </div>
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" rows="5" required [(ngModel)]="model.description" name="description" #description=ngModel></textarea>
+        <textarea class="form-control" rows="5" required [(ngModel)]="ticket.description" name="description" #description=ngModel></textarea>
         <div [hidden]="description.untouched || description.valid" class="alert alert-danger">
             A description for this ticket is required
         </div>

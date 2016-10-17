@@ -14,13 +14,13 @@ import { TicketUserService } from '../user/ticket.user.service';
 export class TicketCreateComponent implements OnInit {
     users: TicketUser[];
     private title: string;
-    private model: Ticket;
+    private ticket: Ticket;
     private submitted: boolean;
     private successful: boolean;
     constructor(private ticketService: TicketService, private userService: TicketUserService) {
         this.users = [];
         this.title = 'Submit a Ticket';
-        this.model = new Ticket();
+        this.ticket = new Ticket();
         this.submitted = false;
         this.successful = false;
     }
@@ -29,6 +29,6 @@ export class TicketCreateComponent implements OnInit {
     }
     onSubmit() {
         this.submitted = true;
-        this.successful = this.ticketService.addTicket(this.model);
+        this.successful = this.ticketService.addTicket(this.ticket);
     }
 }
