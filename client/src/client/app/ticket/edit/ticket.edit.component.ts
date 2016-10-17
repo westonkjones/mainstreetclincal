@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter, AfterViewChecked, OnInit } from '@angular/core';
 
-import { Ticket } from '../ticket';
+import { Ticket, TicketUser } from '../index';
 import { TicketService } from '../ticket.service';
-import { TicketUser } from '../user/ticket.user';
 import { TicketUserService } from '../user/ticket.user.service';
 
 @Component({

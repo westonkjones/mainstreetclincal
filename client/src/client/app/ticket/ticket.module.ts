@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TicketListComponent } from './index';
-import { TicketCreateComponent } from './create/ticket.create.component';
-import { TicketEditComponent } from './edit/ticket.edit.component';
-import { TicketWidgetComponent } from './widget/ticket.widget.component';
-import { TicketUserCreateComponent } from './user/create/ticket.user.create.component';
+import { TicketListComponent, TicketCreateComponent, TicketEditComponent, TicketUserCreateComponent, TicketWidgetComponent } from './index';
 import { TicketService } from './ticket.service';
 import { TicketUserService } from './user/ticket.user.service';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';

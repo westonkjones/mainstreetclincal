@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Ticket } from '../ticket';
+import { Ticket } from '../index';
 import { TicketService } from '../ticket.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
