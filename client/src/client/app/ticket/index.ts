@@ -1,4 +1,5 @@
 export * from './ticket';
+export * from './ticket.status.pipe';
 export * from './user/ticket.user';
 export * from './user/create/ticket.user.create.component';
 export * from './list/ticket.list.component';

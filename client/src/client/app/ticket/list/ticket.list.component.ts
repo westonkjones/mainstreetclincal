@@ -7,12 +7,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
     moduleId: module.id,
     selector: 'ms-ticket',
-    templateUrl: 'ticket.component.html',
-    styleUrls: ['ticket.component.css'],
+    templateUrl: 'ticket.list.component.html',
+    styleUrls: ['ticket.list.component.css'],
 })
 export class TicketListComponent implements OnInit {
     private tickets: Ticket[] = [];
-    constructor(private ticketService: TicketService, private modalService: NgbModal) {}
+    private activeTab: string;
+    constructor(private ticketService: TicketService, private modalService: NgbModal) {
+      this.activeTab = 'open';
+    }
     ngOnInit(): void {
         this.getTickets();
     }
