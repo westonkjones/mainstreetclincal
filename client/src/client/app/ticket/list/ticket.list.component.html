@@ -34,7 +34,7 @@
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
           </tr>
         </tbody>
         <tbody *ngIf="activeTab === 'closed'">
@@ -44,7 +44,7 @@
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
           </tr>
         </tbody>
         <tbody *ngIf="activeTab === 'all'">
@@ -54,7 +54,7 @@
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
           </tr>
         </tbody>
     </table>
