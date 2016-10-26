@@ -11,7 +11,10 @@
 </template>
 <div class="container-fluid">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="">All</a></li>    
+        <li role="presentation" [class.active]="activeTab === 'open'"><a (click)="activeTab = 'open'">Open</a></li>
+        <li role="presentation" [class.active]="activeTab === 'closed'"><a (click)="activeTab = 'closed'">Closed</a></li>
+        <li role="presentation" [class.active]="activeTab === 'all'"><a (click)="activeTab = 'all'">All</a></li>
+        <li class="pull-right"><button class="btn btn-success btn-sm" (click)="openModal(createModal)">Open Ticket</button></li>
     </ul>
     <table class="table table-striped">
         <thead>
@@ -24,16 +27,35 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-        <tr *ngFor="let ticket of tickets; let i = index; trackBy: trackByFn">
+        <tbody *ngIf="activeTab === 'open'">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'OPEN'; let i = index; trackBy: trackByFn">
             <td>{{ticket.id}}</td>
             <td>{{ticket.status}}</td>
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
             <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
-        </tr>   
+          </tr>
+        </tbody>
+        <tbody *ngIf="activeTab === 'closed'">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'CLOSED'; let i = index; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="activeTab === 'all'">
+          <tr *ngFor="let ticket of tickets; let i = index; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a>edit</a>  <a (click)="deleteTicket(tickets[i])">delete</a></td>
+          </tr>
         </tbody>
     </table>
-    <button class="btn btn-success btn-sm" (click)="openModal(createModal)">Open Ticket</button>
 </div>
