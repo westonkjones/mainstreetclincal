@@ -37,6 +37,7 @@ export class ClinicTaskListComponent implements OnInit {
     }
     openCreateModal(content: any) {
         this.modalService.open(content);
+    }
     submit(): void{
         console.log(this.taskList);
     }
