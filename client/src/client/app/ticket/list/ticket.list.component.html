@@ -28,33 +28,33 @@
             </tr>
         </thead>
         <tbody *ngIf="activeTab === 'open'">
-          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'OPEN'; let i = index; trackBy: trackByFn">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'OPEN'; trackBy: trackByFn">
             <td>{{ticket.id}}</td>
             <td>{{ticket.status}}</td>
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
           </tr>
         </tbody>
         <tbody *ngIf="activeTab === 'closed'">
-          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'CLOSED'; let i = index; trackBy: trackByFn">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'CLOSED'; trackBy: trackByFn">
             <td>{{ticket.id}}</td>
             <td>{{ticket.status}}</td>
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
           </tr>
         </tbody>
         <tbody *ngIf="activeTab === 'all'">
-          <tr *ngFor="let ticket of tickets; let i = index; trackBy: trackByFn">
+          <tr *ngFor="let ticket of tickets; trackBy: trackByFn">
             <td>{{ticket.id}}</td>
             <td>{{ticket.status}}</td>
             <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
             <td>{{ticket.description}}</td>
             <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
-            <td><a (click)="deleteTicket(tickets[i])">delete</a></td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
           </tr>
         </tbody>
     </table>
