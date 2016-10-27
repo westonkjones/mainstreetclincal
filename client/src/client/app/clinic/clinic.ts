@@ -1,6 +1,6 @@
-import { Task } from './task/clinic.task';
+import { ClinicTask } from './task/clinic.task';
 
 export class Clinic {
     name: string;
-    tasks: Task[] = [];
+    tasks: ClinicTask[] = [];
 }
