@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewChecked, OnInit } from '@angular/core';
 
-import { Ticket } from '../ticket';
+import { Ticket, TicketUser } from '../index';
 import { TicketService } from '../ticket.service';
+import { TicketUserService } from '../user/ticket.user.service';
 
 @Component({
     moduleId: module.id,
@@ -9,17 +10,22 @@ import { TicketService } from '../ticket.service';
     templateUrl: 'ticket.edit.component.html',
     styleUrls: ['ticket.edit.component.css']
 })
-export class TicketEditComponent implements AfterViewChecked {
+export class TicketEditComponent implements AfterViewChecked, OnInit {
     @Input() ticket: Ticket;
     @Output() deleteTicketEvent: EventEmitter<any> = new EventEmitter();
+    users: TicketUser[];
     private title: string;
     private submitted: boolean;
     private successful: boolean;
     private originalTicket: Ticket;
-    constructor(private ticketService: TicketService) {
+    constructor(private ticketService: TicketService, private userService: TicketUserService) {
+        this.users = [];
         this.title = 'Edit Ticket';
         this.submitted = false;
         this.successful = false;
+    }
+    ngOnInit() {
+        this.userService.getUsers().then(users => this.users = users);
     }
     ngAfterViewChecked() {
         this.originalTicket = this.ticket;

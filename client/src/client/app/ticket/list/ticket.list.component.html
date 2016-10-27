@@ -1,0 +1,61 @@
+<template #createModal let-c="close">
+    <div class="modal-header">
+        <span class="pull-right">
+            <a class="glyphicon glyphicon-remove" (click)="c()"></a>
+        </span>
+        <h2>{{create.title}}</h2>
+    </div>
+    <div class="modal-body">
+        <ms-create-ticket #create (submit)="c(); getTickets()"></ms-create-ticket>
+    </div>
+</template>
+<div class="container-fluid">
+    <ul class="nav nav-tabs">
+        <li role="presentation" [class.active]="activeTab === 'open'"><a (click)="activeTab = 'open'">Open</a></li>
+        <li role="presentation" [class.active]="activeTab === 'closed'"><a (click)="activeTab = 'closed'">Closed</a></li>
+        <li role="presentation" [class.active]="activeTab === 'all'"><a (click)="activeTab = 'all'">All</a></li>
+        <li class="pull-right"><button class="btn btn-success btn-sm" (click)="openModal(createModal)">Open Ticket</button></li>
+    </ul>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Status</th>
+                <th>User</th>
+                <th>Description</th>
+                <th>Next Stop</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngIf="activeTab === 'open'">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'OPEN'; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="activeTab === 'closed'">
+          <tr *ngFor="let ticket of tickets | TicketStatusPipe : 'CLOSED'; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="activeTab === 'all'">
+          <tr *ngFor="let ticket of tickets; trackBy: trackByFn">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.status}}</td>
+            <td>{{ticket.user.firstName}} {{ticket.user.lastName}}</td>
+            <td>{{ticket.description}}</td>
+            <td>{{ticket.nextStop.firstName}} {{ticket.nextStop.lastName}}</td>
+            <td><a (click)="deleteTicket(ticket)">delete</a></td>
+          </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,4 +1,5 @@
 .tmp/
+temp/
 coverage/
 dist/
 node_modules/

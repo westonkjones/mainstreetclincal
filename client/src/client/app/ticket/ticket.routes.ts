@@ -1,20 +1,23 @@
 import { Routes } from '@angular/router';
 
-import { TicketComponent } from './ticket.component';
-import { TicketCreateComponent } from './create/ticket.create.component';
+import { TicketListComponent, TicketCreateComponent } from './index';
 
 export const TicketRoutes: Routes = [
     {
-        path: 'tickets',
+        path: 'ticket',
         children: [
             {
-                path: '',
-                component: TicketComponent
+                path: 'list',
+                component: TicketListComponent
             },
             {
                 path: 'create',
                 component: TicketCreateComponent
-            }
+            },
         ]
+    },
+    {
+        path: '**',
+        redirectTo: 'ticket/list'
     }
 ];

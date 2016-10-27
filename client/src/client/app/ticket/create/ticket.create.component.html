@@ -1,37 +1,23 @@
 <div [hidden]="!submitted || submitted && successful" id="submitErrorAlert" class="alert alert-danger fadeIn text-cener">
     There was an error submitting this ticket. Unable to submit tickets at this time
-</div>  
+</div>
 <form (ngSubmit)="onSubmit()" #ticketCreateForm="ngForm">
     <div class="form-group">
-        <label for="user">User</label>
-        <input type="text" class="form-control" id="user" required [(ngModel)]="model.user" name="user" #user=ngModel>
-        {{user.className}}
-        <div [hidden]="user.untouched || user.valid" class="alert alert-danger">
-            A user for this ticket is required
-        </div>
+        <label for="user" class="control-label">User</label><br>
+        <input type="text" class="form-control" required auto-complete [(ngModel)]="ticket.user" [source]="users" display-property-name="fullName" name="user" #user="ngModel">
     </div>
     <div class="form-group">
-        <label for="nextStop">Next Stop User</label>
-        <input type="text" class="form-control" id="nextStop" required [(ngModel)]="model.nextStop" name="nextStop" #nextStop=ngModel>
-        <div [hidden]="nextStop.untouched || nextStop.valid" class="alert alert-danger">
-            A next stop user for this ticket is required
-        </div>
+        <label for="nextStop" class="control-label">Next Stop User</label><br>
+        <input type="text" class="form-control" auto-complete [(ngModel)]="ticket.nextStop" [source]="users" display-property-name="fullName" name="nextStop" #nextStop="ngModel">
     </div>
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" required [(ngModel)]="model.title" name="title" #title=ngModel>
-        <div [hidden]="title.untouched || title.valid" class="alert alert-danger">
-            A title for this ticket is required
-        </div>
+    <div class="form-group" [class.has-error]="title.touched && title.invalid">
+        <label for="title" class="control-label">Title</label>
+        <input type="text" class="form-control" id="title" required [(ngModel)]="ticket.title" name="title" #title=ngModel>
     </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" rows="5" required [(ngModel)]="model.description" name="description" #description=ngModel></textarea>
-        <div [hidden]="description.untouched || description.valid" class="alert alert-danger">
-            A description for this ticket is required
-        </div>
+    <div class="form-group" [class.has-error]="description.touched && description.invalid">
+        <label for="description" class="control-label">Description</label>
+        <textarea class="form-control" rows="5" required [(ngModel)]="ticket.description" name="description" #description=ngModel></textarea>
     </div>
-
     <button type="submit" class="btn btn-default" [disabled]="!ticketCreateForm.form.valid">Submit</button>
     <button class="btn btn-primary pull-right" (click)="deleteTicket()">Delete</button>
 </form>
