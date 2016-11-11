@@ -1,56 +1,19 @@
 <div class="container">
     <h2 class="text-center">Today is {{taskList?.date}}</h2>
     <div *ngIf="taskList != null">
-        <div *ngIf="taskList.clinic == null" class="col-xs-6 col-xs-offset-3 form-group text-center">
-            <h2 class="pull-left"><small>Please select clinic for today</small></h2>
-            <select class="form-control" [(ngModel)]="taskList.clinic">
-                <option [ngValue]="null" selected>Please Select a Clinic</option>
-                <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="c">{{c.name}}</option>
+        <div *ngIf="taskList.clinic == null">
+          <div class="col-xs-7 col-xs-offset-3 form-group text-center">
+            <select class="form-control" [(ngModel)]="taskList.clinic" name="clinicSelect">
+              <option [ngValue]="null" selected>Please Select a Clinic</option>
+              <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="c">{{c.name}}</option>
             </select>
-            <h2>Or</h2>
-            <br>
-            <a [routerLink]="['/clinic/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success">Create a clinic</a>
+          </div>
+          <div class="col-xs-2">
+            <a [routerLink]="['/clinic/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add a clinic"><i class="fa fa-plus" aria-hidden="true"></i></a>
+          </div>
         </div>
         <div *ngIf="taskList.clinic != null">
             <h1>{{taskList.clinic.name}}</h1>
-        <div class="heading-spacer"></div>
-        <div class="row">
-        <div *ngIf="taskList.staff.length >= 1" class="col-sm-3">
-            <h2 class="text-center">
-                <span *ngIf="taskList.staff.length > 1" (click)="removeStaffMember()" class="pull-left">-</span>
-                MA1<span *ngIf="taskList.staff.length == 1">/MA2</span>
-            </h2>
-            <div class="well">
-                <input [(ngModel)]="taskList.staff[0].name" placeholder="Name" />
-            </div>
         </div>
-        <div *ngIf="taskList.staff.length >= 2" class="col-sm-3">
-            <h2 class="text-center">MA2</h2>
-            <div class="well">
-                <input [(ngModel)]="taskList.staff[1].name" placeholder="Name" />
-            </div>
-        </div> 
-        <div *ngIf="taskList.staff.length == 4" class="col-sm-3">
-            <h2 class="text-center">MA3</h2>
-            <div class="well">
-                <input [(ngModel)]="taskList.staff[2].name" placeholder="Name" />
-            </div>
-        </div>
-        <div *ngIf="taskList.staff.length >= 3" class="col-sm-3">
-            <h2 class="text-center">Front Desk</h2>
-            <div class="well">
-                <input [(ngModel)]="taskList.staff[3].name" placeholder="Name" />
-            </div>
-        </div>
-        <div *ngIf="taskList.staff.length < 4" class="col-sm-3">
-            <h2 (click)="addStaffMember()">+</h2>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-3">
-                <button class="btn btn-default" (click)="submit()">Submit</button>
-            </div>
-        </div>
-    </div>
     </div>
 </div>
