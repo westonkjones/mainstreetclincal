@@ -13,6 +13,10 @@ export const ClinicRoutes: Routes = [
                     {
                         path: 'list',
                         component: ClinicTaskListComponent
+                    },
+                    {
+                        path: '**',
+                        redirectTo: 'list'
                     }
                 ]
             },

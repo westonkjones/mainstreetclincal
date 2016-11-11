@@ -14,10 +14,10 @@ export const TicketRoutes: Routes = [
                 path: 'create',
                 component: TicketCreateComponent
             },
+            {
+              path: '**',
+              redirectTo: 'list'
+            }
         ]
-    },
-    {
-        path: '**',
-        redirectTo: 'ticket/list'
     }
 ];
