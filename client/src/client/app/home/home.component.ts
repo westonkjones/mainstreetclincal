@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['home.component.css'],
 })
 
-export class HomeComponent { }
+export class HomeComponent {
+  constructor(private router: Router) {
+    this.router = router;
+  }
+  routeTo(route: string) {
+    this.router.navigate([route]);
+  }
+}

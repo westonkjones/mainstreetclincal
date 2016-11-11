@@ -1,0 +1,25 @@
+<div class="container" id="home-container">
+  <div class="row">
+    <div class="col-sm-4 col-xs-12 text-center" (click)="routeTo('/clinic/task/list')">
+      <div class="home-icon-container">
+        <i class="fa fa-check home-icon" aria-hidden="true"></i>
+        <br>
+        Daily Tasks
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12 text-center" (click)="routeTo('/inventory/list')">
+      <div class="home-icon-container">
+        <i class="fa fa-list home-icon" aria-hidden="true"></i>
+        <br>
+        Inventory
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-12 text-center" (click)="routeTo('/ticket/list')">
+      <div class="home-icon-container">
+        <i class="fa fa-ticket home-icon" aria-hidden="true"></i>
+        <br>
+        Tickets
+      </div>
+    </div>
+  </div>
+</div>

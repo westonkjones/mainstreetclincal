@@ -1,0 +1,12 @@
+#home-container {
+  padding-top: 150px;
+}
+.home-icon-container {
+  cursor: pointer;
+  cursor: hand;
+  font-size: 48px;
+  transition: font-size 0.5s;
+}
+.home-icon-container:hover {
+  font-size: 60px;
+}
