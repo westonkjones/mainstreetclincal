@@ -1,18 +1,20 @@
 <form (ngSubmit)="onSubmit()" #clinicTaskCreateForm="ngForm">
     <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" id="description" required [(ngModel)]="model.description" name="description" #description=ngModel>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="task.description" name="description" #description=ngModel>
     </div>
     <div class="form-group">
         <label>Category</label>
-        <input type="text" class="form-control" id="category" required [(ngModel)]="model.category" name="category" #category=ngModel>
+        <div ng2-auto-complete [source]="categories">
+            <input [(ngModel)]="task.category" type="text" class="form-control" name="category">
+        </div>
     </div>
     <div class="form-group">
         <h5>Staffing Options</h5>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="model.ma1" name="ma1">MA1</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="model.ma2" name="ma2">MA2</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="model.ma3" name="ma3">MA3</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="model.frontDesk" name="frontDesk">Front Desk</label>
+        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma1" name="ma1">MA1</label>
+        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma2" name="ma2">MA2</label>
+        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma3" name="ma3">MA3</label>
+        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.frontDesk" name="frontDesk">Front Desk</label>
     </div>
     <br>
     <button type="submit" class="btn btn-default" [disabled]="!clinicTaskCreateForm.form.valid">Submit</button>

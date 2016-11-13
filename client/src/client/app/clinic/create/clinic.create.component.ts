@@ -10,13 +10,12 @@ import { Clinic, ClinicService } from '../index';
     styleUrls: ['clinic.create.component.css']
 })
 export class ClinicCreateComponent {
-    private title: string;
-    private model: Clinic;
+    private title: string = 'Create a Clinic';;
+    private clinic: Clinic;
     private submitted: boolean;
     private successful: boolean;
     constructor(private clinicService: ClinicService, private modalService: NgbModal) {
-        this.title = 'Create a Clinic';
-        this.model = new Clinic();
+        this.clinic = new Clinic();
         this.submitted = false;
         this.successful = false;
     }
@@ -25,6 +24,6 @@ export class ClinicCreateComponent {
     }
     onSubmit() {
         this.submitted = true;
-        this.successful = this.clinicService.addClinic(this.model);
+        this.successful = this.clinicService.addClinic(this.clinic);
     }
 }

@@ -333,7 +333,7 @@ export class SeedConfig {
       `/node_modules/*/package.json`,
       `/node_modules/**/package.json`,
       `/node_modules/@angular/*/package.json`,
-      `/node_modules/@ng-bootstrap/ng-bootstrap/package.json`
+      `/node_modules/@ng-bootstrap/ng-bootstrap/package.json`,
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
@@ -390,6 +390,9 @@ export class SeedConfig {
       'node_modules/*': 'node_modules/*',
       '*': 'node_modules/*'
     },
+    map: {
+      'ng2-typeahead': 'node_modules/ng2-typeahead'
+    },
     packages: {
       '@angular/common': {
         main: 'index.js',
@@ -424,6 +427,10 @@ export class SeedConfig {
         defaultExtension: 'js'
       },
       '@angular/router': {
+        main: 'index.js',
+        defaultExtension: 'js'
+      },
+      'ng2-typeahead': {
         main: 'index.js',
         defaultExtension: 'js'
       },

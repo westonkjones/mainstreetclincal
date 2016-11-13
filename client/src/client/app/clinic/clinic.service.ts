@@ -7,13 +7,11 @@ export class ClinicService {
     public clinics: Clinic[] = [];
     constructor() {
         var c1 = new Clinic();
-        c1.name = 'Clinic A';
-
+        c1.name = 'Clinic 1';
         var c2 = new Clinic();
-        c2.name = 'Clinic B';
-
+        c2.name = 'Clinic 2';
         var c3 = new Clinic();
-        c3.name = 'Clinic C';
+        c3.name = 'Clinic 3';
 
         this.clinics.push(c1);
         this.clinics.push(c2);

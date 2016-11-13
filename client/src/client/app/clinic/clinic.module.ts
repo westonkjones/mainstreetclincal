@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
-import { ClinicCreateComponent, ClinicTaskCreateComponent, ClinicTaskListComponent, ClinicService, ClinicTaskListService } from './index';
+import { ClinicCreateComponent } from './index'; 
+import { ClinicService } from './clinic.service';
+import { ClinicTaskListService } from './task/list/clinic.task.list.service';
+import { ClinicTaskCreateComponent } from './task/create/clinic.task.create.component';
 
 @NgModule({
-    imports: [FormsModule, CommonModule, RouterModule],
-    declarations: [ClinicCreateComponent, ClinicTaskCreateComponent, ClinicTaskListComponent],
-    exports: [ClinicCreateComponent, ClinicTaskListComponent],
+    imports: [CommonModule, FormsModule, Ng2AutoCompleteModule],
+    declarations: [ClinicCreateComponent, ClinicTaskCreateComponent],
+    exports: [ClinicCreateComponent, ClinicTaskCreateComponent],
     providers: [ClinicService, ClinicTaskListService],
 })
 export class ClinicModule { }

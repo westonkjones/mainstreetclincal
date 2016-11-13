@@ -6,17 +6,19 @@ import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { routes } from './app.routes';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
+import { DailyTasksModule } from './dailyTasks/dailyTasks.module';
 import { TicketModule } from './ticket/ticket.module';
 import { ClinicModule } from './clinic/clinic.module';
 
 @NgModule({
   imports: [BrowserModule, HttpModule, CommonModule, RouterModule.forRoot(routes), NgbModule.forRoot(), SharedModule.forRoot(),
-    HomeModule, TicketModule, ClinicModule],
+    HomeModule, TicketModule, DailyTasksModule, ClinicModule, Ng2AutoCompleteModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

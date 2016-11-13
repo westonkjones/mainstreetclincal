@@ -1,0 +1,29 @@
+<div class="container">
+  <h2 class="text-center">Today is {{taskList?.date}}</h2>
+  <div *ngIf="clinic == null">
+    <div class="col-xs-7 col-xs-offset-3 form-group text-center">
+      <select class="form-control" [(ngModel)]="clinic" (ngModelChange)="getTaskList()">
+        <option [ngValue]="null" selected>Please Select a Clinic</option>
+        <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="c">{{c.name}}</option>
+      </select>
+    </div>
+    <div class="col-xs-2">
+      <a [routerLink]="['/clinic/create']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add a clinic"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <div *ngIf="clinic != null">
+    <h1>{{taskList.clinic.name}}</h1>
+    <div *ngIf="!isStarted()">
+      <div class="row">
+        <div class="col-sm-8">
+          <ul class="nav nav-pill nav-justified">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
