@@ -10,6 +10,7 @@ import { Clinic, ClinicTask } from '../../index';
 })
 export class ClinicTaskCreateComponent implements OnInit {
     @Input('clinic') clinic: Clinic = null;
+    public title: string = 'New Task';
     private task: ClinicTask;
     private categories: string[];
 
@@ -24,9 +25,11 @@ export class ClinicTaskCreateComponent implements OnInit {
                 this.categories.push(t.category);
             }
         }
-        console.log(this.categories);
     }
     onSubmit(): void {
         this.clinic.tasks.push(this.task);
+    }
+    changeCategory(category: string): void {
+        this.task.category = category;
     }
 }

@@ -1,3 +1,11 @@
-.cb {
-    display: inline-block;
+table, th, td, tr {
+    color: black;
+    border: 1px solid black !important;
+    text-align: center;
+}
+td {
+    height: 40px;
+}
+input {
+    width: 100% !important;
 }

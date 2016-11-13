@@ -1,21 +1,61 @@
 <form (ngSubmit)="onSubmit()" #clinicTaskCreateForm="ngForm">
     <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" id="description" required [(ngModel)]="task.description" name="description" #description=ngModel>
+        <input [(ngModel)]="task.description" name="description" type="text" class="form-control" required autocomplete="off">
     </div>
     <div class="form-group">
-        <label>Category</label>
-        <div ng2-auto-complete [source]="categories">
-            <input [(ngModel)]="task.category" type="text" class="form-control" name="category">
-        </div>
+        <label>Category</label><br>
+        <input [(ngModel)]="task.category" name="category" type="text" class="form-control" required autocomplete="off">
     </div>
     <div class="form-group">
-        <h5>Staffing Options</h5>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma1" name="ma1">MA1</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma2" name="ma2">MA2</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.ma3" name="ma3">MA3</label>
-        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="task.frontDesk" name="frontDesk">Front Desk</label>
+        <label>Staffing Options</label>
+        <table class="table table-bordered">
+            <colgroup>
+                <col style="background-color: #EAE2BD">
+                <col style="background-color: #CFCFCF" span="2">
+                <col style="background-color: #EAE2BD" span="3">
+                <col style="background-color: #CFCFCF" span="4">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th nowrap="nowrap">1 Staff</th>
+                    <th colspan="2">2 Staff</th>
+                    <th colspan="3">3 Staff</th>
+                    <th colspan="4">4 Staff</th>
+                </tr>
+                <tr>
+                    <!-- 1 Staff -->
+                    <th>MA1</th>
+                    <!-- 2 Staff -->
+                    <th>MA1</th>
+                    <th>MA2</th>
+                    <!-- 3 Staff -->
+                    <th>MA1</th>
+                    <th>MA2</th>
+                    <th>MA3</th>
+                    <!-- 4 Staff -->
+                    <th>MA1</th>
+                    <th>MA2</th>
+                    <th>MA3</th>
+                    <th>Front Desk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td (click)="task.staff1[0] = !task.staff1[0]"><span *ngIf="task.staff1[0]">X</span></td>
+                    <td (click)="task.staff2[0] = !task.staff2[0]"><span *ngIf="task.staff2[0]">X</span></td>
+                    <td (click)="task.staff2[1] = !task.staff2[1]"><span *ngIf="task.staff2[1]">X</span></td>
+                    <td (click)="task.staff3[0] = !task.staff3[0]"><span *ngIf="task.staff3[0]">X</span></td>
+                    <td (click)="task.staff3[1] = !task.staff3[1]"><span *ngIf="task.staff3[1]">X</span></td>
+                    <td (click)="task.staff3[2] = !task.staff3[2]"><span *ngIf="task.staff3[2]">X</span></td>
+                    <td (click)="task.staff4[0] = !task.staff4[0]"><span *ngIf="task.staff4[0]">X</span></td>
+                    <td (click)="task.staff4[1] = !task.staff4[1]"><span *ngIf="task.staff4[1]">X</span></td>
+                    <td (click)="task.staff4[2] = !task.staff4[2]"><span *ngIf="task.staff4[2]">X</span></td>
+                    <td (click)="task.staff4[3] = !task.staff4[3]"><span *ngIf="task.staff4[3]">X</span></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <br>
-    <button type="submit" class="btn btn-default" [disabled]="!clinicTaskCreateForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!clinicTaskCreateForm.form.valid || this.task.category === '' || this.task.category === null">Submit</button>
 </form>
