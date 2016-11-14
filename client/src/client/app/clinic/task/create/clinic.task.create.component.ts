@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Clinic, ClinicTask } from '../../index';
 
@@ -8,28 +8,12 @@ import { Clinic, ClinicTask } from '../../index';
     templateUrl: 'clinic.task.create.component.html',
     styleUrls: ['clinic.task.create.component.css']
 })
-export class ClinicTaskCreateComponent implements OnInit {
+export class ClinicTaskCreateComponent {
     @Input('clinic') clinic: Clinic = null;
+    @Input('task') task: ClinicTask = new ClinicTask();
     public title: string = 'New Task';
-    private task: ClinicTask;
-    private categories: string[];
 
-    constructor() {
-        this.task = new ClinicTask();
-        this.categories = [];
-    }
-    ngOnInit() {
-        // Build categories list
-        for(let t of this.clinic.tasks) {
-            if(this.categories.indexOf(t.category) === -1) { // Does not exist in categories list
-                this.categories.push(t.category);
-            }
-        }
-    }
     onSubmit(): void {
-        this.clinic.tasks.push(this.task);
-    }
-    changeCategory(category: string): void {
-        this.task.category = category;
+        this.clinic.addTask(this.task);
     }
 }

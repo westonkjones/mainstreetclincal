@@ -22,26 +22,63 @@
         <br>
         <div class="form-group"> 
             <label>Tasks</label>
-            <table class="table table-striped">
+            <table class="table table-bordered table-condensed">
+                <colgroup>
+                    <col>
+                    <col style="background-color: #EAE2BD">
+                    <col style="background-color: #CFCFCF" span="2">
+                    <col style="background-color: #EAE2BD" span="3">
+                    <col style="background-color: #CFCFCF" span="4">
+                    <col>
+                </colgroup>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>1 Staff</th>
-                        <th>2 Staff</th>
-                        <th>3 Staff</th>
-                        <th>4 Staff</th>
+                        <th nowrap="nowrap">1 Staff</th>
+                        <th nowrap="nowrap" colspan="2">2 Staff</th>
+                        <th nowrap="nowrap" colspan="3">3 Staff</th>
+                        <th nowrap="nowrap" colspan="4">4 Staff</th>
                         <th>How Often</th>
                     </tr>
-                    <tr>
+                    <tr style="border-bottom: 2px;">
                         <th></th>
-
+                        <!-- 1 Staff -->
+                        <th>MA1</th>
+                        <!-- 2 Staff -->
+                        <th>MA1</th>
+                        <th>MA2</th>
+                        <!-- 3 Staff -->
+                        <th>MA1</th>
+                        <th>MA2</th>
+                        <th>MA3</th>
+                        <!-- 4 Staff -->
+                        <th>MA1</th>
+                        <th>MA2</th>
+                        <th>MA3</th>
+                        <th>Front Desk</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let task of clinic.tasks">
-                        <td>{{task.category}}</td>
-                        <td>{{task.description}}</td>
-                    </tr>
+                    <template ngFor let-item [ngForOf]="clinic.tasks">
+                        <tr>
+                            <td colspan="12" style="text-align: left; padding-left: 15px;"><strong>{{item[0].category}}</strong></td>
+                        </tr>
+                        <tr *ngFor="let task of item">
+                            <td>{{task.description}}</td>
+                            <td><span *ngIf="task.staff1[0]">X</span></td>
+                            <td><span *ngIf="task.staff2[0]">X</span></td>
+                            <td><span *ngIf="task.staff2[1]">X</span></td>
+                            <td><span *ngIf="task.staff3[0]">X</span></td>
+                            <td><span *ngIf="task.staff3[1]">X</span></td>
+                            <td><span *ngIf="task.staff3[2]">X</span></td>
+                            <td><span *ngIf="task.staff4[0]">X</span></td>
+                            <td><span *ngIf="task.staff4[1]">X</span></td>
+                            <td><span *ngIf="task.staff4[2]">X</span></td>
+                            <td><span *ngIf="task.staff4[3]">X</span></td>
+                            <td></td>
+                        </tr>
+                    </template>
                 </tbody>
             </table>
             <span><a (click)="openCreateModal(createModal)">Add task...</a></span>
