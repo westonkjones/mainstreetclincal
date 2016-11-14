@@ -9,6 +9,7 @@ import { DailyTasksService } from './dailyTasks.service';
   moduleId: module.id,
   selector: 'ms-daily-tasks',
   templateUrl: 'dailyTasks.component.html',
+  styleUrls: ['dailyTasks.component.css']
 })
 export class DailyTasksComponent implements OnInit {
   private clinic: Clinic = null;
@@ -27,5 +28,8 @@ export class DailyTasksComponent implements OnInit {
     this.clinic = clinic;
     this.clinicService.clinic = clinic;
     this.dailyTasks = this.dailyTasksService.getTodaysDailyTasks(clinic);
+  }
+  startDay(): void {
+    this.dailyTasks.started = true;
   }
 }
