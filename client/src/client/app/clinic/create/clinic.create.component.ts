@@ -20,7 +20,7 @@ export class ClinicCreateComponent {
         this.submitted = false;
         this.successful = false;
     }
-    openCreateModal(content: any) {
+    openModal(content: any) {
         this.modalService.open(content);
     }
     onSubmit() {

@@ -39,6 +39,8 @@
                         <th nowrap="nowrap" colspan="3">3 Staff</th>
                         <th nowrap="nowrap" colspan="4">4 Staff</th>
                         <th>How Often</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                     <tr style="border-bottom: 2px;">
                         <th></th>
@@ -57,14 +59,26 @@
                         <th>MA3</th>
                         <th>Front Desk</th>
                         <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <template ngFor let-item [ngForOf]="clinic.tasks">
+                    <template ngFor let-item [ngForOf]="clinic.taskLists">
                         <tr>
-                            <td colspan="12" style="text-align: left; padding-left: 15px;"><strong>{{item[0].category}}</strong></td>
+                            <td colspan="14" style="text-align: left"><strong>{{item.category}}</strong></td>
                         </tr>
-                        <tr *ngFor="let task of item">
+                        <tr *ngFor="let task of item.getTasks()">
+                            <template #editModal let-c="close">
+                                <div class="modal-header">
+                                    <span class="pull-right">
+                                        <a class="glyphicon glyphicon-remove" (click)="c()"></a>
+                                    </span>
+                                </div>
+                                <div class="modal-body">
+                                    <ms-create-task [clinic]="clinic" [task]="task" #edit (submit)="c();"></ms-create-task>
+                                </div>
+                            </template>
                             <td>{{task.description}}</td>
                             <td><span *ngIf="task.staff1[0]">X</span></td>
                             <td><span *ngIf="task.staff2[0]">X</span></td>
@@ -77,11 +91,13 @@
                             <td><span *ngIf="task.staff4[2]">X</span></td>
                             <td><span *ngIf="task.staff4[3]">X</span></td>
                             <td></td>
+                            <td><a (click)="openModal(editModal)"><i class="fa fa-pencil"></i></a></td>
+                            <td><a (click)="clinic.removeTask(task)"><i class="fa fa-trash"></i></a></td>
                         </tr>
                     </template>
                 </tbody>
             </table>
-            <span><a (click)="openCreateModal(createModal)">Add task...</a></span>
+            <span><a (click)="openModal(createModal)">Add task...</a></span>
         </div>
         <br>
         <button type="submit" class="btn btn-default" [disabled]="!clinicCreateForm.form.valid">Submit</button>
