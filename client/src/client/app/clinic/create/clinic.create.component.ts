@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Clinic, ClinicTask } from '../index';
@@ -15,7 +16,7 @@ export class ClinicCreateComponent {
     private clinic: Clinic;
     private submitted: boolean;
     private successful: boolean;
-    constructor(private clinicService: ClinicService, private modalService: NgbModal) {
+    constructor(private clinicService: ClinicService, private router: Router, private modalService: NgbModal) {
         this.clinic = new Clinic();
         this.submitted = false;
         this.successful = false;
@@ -26,5 +27,6 @@ export class ClinicCreateComponent {
     onSubmit() {
         this.submitted = true;
         this.successful = this.clinicService.addClinic(this.clinic);
+        this.router.navigate(['/dailyTasks']);
     }
 }
