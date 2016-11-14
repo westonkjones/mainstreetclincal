@@ -1,4 +1,4 @@
-import { ClinicTask } from './clinic.task';
+import { ClinicTask } from '../index';
 
 export class ClinicTaskCategoryList {
     category: string;

@@ -1,5 +1,4 @@
-import { ClinicTask } from './task/clinic.task';
-import { ClinicTaskCategoryList } from './task/clinic.task.categoryList';
+import { ClinicTask, ClinicTaskCategoryList } from './index';
 
 export class Clinic {
     name: string;

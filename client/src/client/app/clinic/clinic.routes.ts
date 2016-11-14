@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { ClinicCreateComponent } from './create/clinic.create.component';
+import { ClinicCreateComponent } from './index';
 
 export const ClinicRoutes: Routes = [
     {
