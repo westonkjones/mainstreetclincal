@@ -17,6 +17,4 @@ export class DailyTasksComponent implements OnInit {
   ngOnInit(): void {
     this.clinicService.getClinics().then(clinics => this.clinics = clinics);
   }
-  getTaskList(): void {
-  }
 }

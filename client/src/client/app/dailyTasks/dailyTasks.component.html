@@ -1,5 +1,4 @@
 <div class="container">
-  <h2 class="text-center">Today is {{taskList?.date}}</h2>
   <div *ngIf="clinic == null">
     <div class="col-xs-7 col-xs-offset-3 form-group text-center">
       <select class="form-control" [(ngModel)]="clinic" (ngModelChange)="getTaskList()">
@@ -12,7 +11,7 @@
     </div>
   </div>
   <div *ngIf="clinic != null">
-    <h1>{{taskList.clinic.name}}</h1>
+    <h2 class="text-center">Today is </h2>
     <div *ngIf="!isStarted()">
       <div class="row">
         <div class="col-sm-8">
