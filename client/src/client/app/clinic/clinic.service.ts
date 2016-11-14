@@ -4,6 +4,7 @@ import { Clinic } from './clinic';
 
 @Injectable()
 export class ClinicService {
+    public clinic: Clinic = null;
     public clinics: Clinic[] = [];
     constructor() {
         var c1 = new Clinic();
@@ -16,6 +17,9 @@ export class ClinicService {
         this.clinics.push(c1);
         this.clinics.push(c2);
         this.clinics.push(c3);
+    }
+    getClinic(): Clinic {
+        return this.clinic;
     }
     getClinics(): Promise<Clinic[]> {
         return Promise.resolve(this.clinics);

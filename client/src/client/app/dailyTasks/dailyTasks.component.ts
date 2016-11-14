@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Clinic } from '../clinic/clinic';
+import { Clinic } from '../clinic/index';
 import { ClinicService } from '../clinic/clinic.service';
+import { DailyTasks } from './dailyTasks';
+import { DailyTasksService } from './dailyTasks.service';
 
 @Component({
   moduleId: module.id,
@@ -9,12 +11,21 @@ import { ClinicService } from '../clinic/clinic.service';
   templateUrl: 'dailyTasks.component.html',
 })
 export class DailyTasksComponent implements OnInit {
-  private clinic: Clinic;
-  private clinics: Clinic[];
-  constructor(private clinicService: ClinicService) {
-    this.clinic = null;
-  }
+  private clinic: Clinic = null;
+  private clinics: Clinic[] = [];
+  private dailyTasks: DailyTasks = null;
+  constructor(private clinicService: ClinicService, private dailyTasksService: DailyTasksService) {}
   ngOnInit(): void {
-    this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+    this.clinic = this.clinicService.getClinic();
+    if(this.clinic === null) {
+      this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+    } else {
+      this.clinicSelected(this.clinic);
+    }
+  }
+  clinicSelected(clinic: Clinic): void {
+    this.clinic = clinic;
+    this.clinicService.clinic = clinic;
+    this.dailyTasks = this.dailyTasksService.getTodaysDailyTasks(clinic);
   }
 }

@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { DailyTasksComponent }   from './dailyTasks.component';
+import { DailyTasksService } from './dailyTasks.service';
 
 @NgModule({
     imports: [FormsModule, CommonModule, RouterModule],
     exports: [DailyTasksComponent],
     declarations: [DailyTasksComponent],
-    providers: [],
+    providers: [DailyTasksService],
 })
 export class DailyTasksModule { }
