@@ -79,6 +79,18 @@
                                     <ms-create-task [clinic]="clinic" [task]="task" #edit (submit)="c();"></ms-create-task>
                                 </div>
                             </template>
+                            <template #confirmationModal let-c="close">
+                                <div class="modal-header">
+                                    <span class="pull-right">
+                                        <a class="glyphicon glyphicon-remove" (click)="c()"></a>
+                                    </span>
+                                    <h3>Delete this task?</h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button (click)="clinic.removeTask(task); c()" class="btn btn-default">Ok</button>
+                                    <button (click)="c()" class="btn btn-danger">Cancel</button>
+                                </div>
+                            </template>
                             <td>{{task.description}}</td>
                             <td><span *ngIf="task.staff1[0]">X</span></td>
                             <td><span *ngIf="task.staff2[0]">X</span></td>
@@ -92,7 +104,7 @@
                             <td><span *ngIf="task.staff4[3]">X</span></td>
                             <td></td>
                             <td><a (click)="openModal(editModal)"><i class="fa fa-pencil" style="color: #3167bf"></i></a></td>
-                            <td><a (click)="clinic.removeTask(task)"><i class="fa fa-trash"></i></a></td>
+                            <td><a (click)="openModal(confirmationModal)"><i class="fa fa-trash"></i></a></td>
                         </tr>
                     </template>
                 </tbody>
