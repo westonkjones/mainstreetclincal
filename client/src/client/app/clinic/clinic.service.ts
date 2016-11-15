@@ -24,7 +24,7 @@ export class ClinicService {
             if(clinic.name === name)
                 return Promise.resolve(clinic);
         }
-        
+
         // This is a hack and should be fixed
         return Promise.resolve(null);
     }
@@ -32,8 +32,8 @@ export class ClinicService {
         return Promise.resolve(this.clinics);
     }
     addClinic(clinic: Clinic) {
-        this.clinics.push(clinic);
-        return true;
+        if(this.clinics.indexOf(clinic) === -1)
+            this.clinics.push(clinic);
     }
     removeClinic(clinic: Clinic) {
         this.clinics.splice(this.clinics.indexOf(clinic), 1);
