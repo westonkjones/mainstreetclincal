@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { AdminComponent, AdminClinicComponent }   from './index';
+import { AdminComponent, AdminClinicComponent, ClinicCreateComponent, ClinicTaskCreateComponent }   from './index';
 
 @NgModule({
-    imports: [CommonModule],
-    exports: [AdminComponent],
-    declarations: [AdminComponent, AdminClinicComponent],
+    imports: [CommonModule, FormsModule],
+    exports: [AdminComponent, ClinicCreateComponent],
+    declarations: [AdminComponent, AdminClinicComponent, ClinicCreateComponent, ClinicTaskCreateComponent],
     providers: [],
 })
 export class AdminModule { }

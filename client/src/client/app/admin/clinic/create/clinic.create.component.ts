@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Clinic, ClinicTask } from '../index';
-import { ClinicService } from '../clinic.service';
+import { Clinic } from '../../../clinic/clinic';
+import { ClinicService } from '../../../clinic/clinic.service';
+import { ClinicTask } from '../task/clinic.task';
 
 @Component({
     moduleId: module.id,
@@ -27,6 +28,6 @@ export class ClinicCreateComponent {
     onSubmit() {
         this.submitted = true;
         this.successful = this.clinicService.addClinic(this.clinic);
-        this.router.navigate(['/dailyTasks']);
+        this.router.navigate(['/admin']);
     }
 }
