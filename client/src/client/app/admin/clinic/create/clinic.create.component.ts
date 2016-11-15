@@ -35,7 +35,8 @@ export class ClinicCreateComponent {
     }
     onSubmit() {
         this.submitted = true;
-        this.successful = this.clinicService.addClinic(this.clinic);
+        this.clinicService.addClinic(this.clinic);
+        this.successful = true;
         this.router.navigate(['/admin']);
     }
 }
