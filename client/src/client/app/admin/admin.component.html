@@ -1,1 +1,10 @@
-<ms-admin-clinic></ms-admin-clinic>
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" (click)="setActiveTab('clinic')" [class.active]="activeTab === 'clinic'"><a>Clinic</a></li>
+    </ul>
+    <div *ngIf="activeTab === 'clinic'">
+        <div class="container tab-content">
+            <ms-admin-clinic></ms-admin-clinic>
+        </div>
+    </div>
+</div>
