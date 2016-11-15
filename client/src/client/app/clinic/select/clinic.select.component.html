@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="col-xs-7 col-xs-offset-3 form-group">
+      <label>Please select a clinic</label>
+      <select [(ngModel)]="clinic" (ngModelChange)="onSelect($event)" class="form-control">
+        <option [ngValue]="null" selected></option>
+        <option *ngFor="let c of clinics; trackBy: trackByFn" [ngValue]="c">{{c.name}}</option>
+      </select>
+    </div>
+</div>

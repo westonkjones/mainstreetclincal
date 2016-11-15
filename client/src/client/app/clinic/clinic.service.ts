@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { Clinic } from './clinic';
 
 @Injectable()
 export class ClinicService {
-    public clinic: Clinic = null;
+    private clinic: Clinic = null;
+    private clinicBehaviorSubject: BehaviorSubject<Clinic> = new BehaviorSubject<Clinic>(this.clinic);
+    clinicObservable = this.clinicBehaviorSubject.asObservable();
+
     public clinics: Clinic[] = [];
     constructor() {
         var c1 = new Clinic();
@@ -17,6 +21,12 @@ export class ClinicService {
         this.clinics.push(c1);
         this.clinics.push(c2);
         this.clinics.push(c3);
+    }
+    getCurrentclinic(): Clinic {
+        return this.clinic;
+    }
+    setCurrentClinic(clinic: Clinic): void {
+        this.clinicBehaviorSubject.next(clinic);
     }
     getClinic(name: string): Promise<Clinic> {
         // Temporary implementation

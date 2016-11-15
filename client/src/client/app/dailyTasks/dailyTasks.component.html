@@ -1,18 +1,4 @@
 <div class="container">
-  <div *ngIf="clinic === null">
-    <div class="col-xs-7 col-xs-offset-3 form-group">
-      <label>Please select a clinic</label>
-      <select class="form-control" (change)="clinicSelected($event)">
-        <option [ngValue]="null" selected></option>
-        <option *ngFor="let c of clinics; trackBy: trackByFn">{{c.name}}</option>
-      </select>
-    </div>
-    <!--
-    <div class="col-xs-2">
-      <a [routerLink]="['/clinic/create']" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Add a clinic"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    </div>
-    -->
-  </div>
   <div *ngIf="clinic != null">
     <div class="row text-center">
       <h3>Today is {{dailyTasks?.date.toDateString()}}</h3>

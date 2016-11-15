@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { Clinic } from '../clinic/clinic';
 import { ClinicService } from '../clinic/clinic.service';
@@ -13,20 +15,19 @@ import { DailyTasksService } from './dailyTasks.service';
 })
 export class DailyTasksComponent implements OnInit {
   private clinic: Clinic = null;
-  private clinics: Clinic[] = [];
+  clinicSubscription: Subscription;
   private dailyTasks: DailyTasks = null;
-  constructor(private clinicService: ClinicService, private dailyTasksService: DailyTasksService) {}
+  constructor(private clinicService: ClinicService, private dailyTasksService: DailyTasksService, private router: Router) {}
   ngOnInit(): void {
+    this.clinicSubscription = this.clinicService.clinicObservable.subscribe(clinic => this.clinic = clinic);
     if(this.clinic === null) {
-      this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+      this.router.navigate(['/clinic/create']);
     } else {
-      this.clinicSelected(this.clinic);
-    }
+      this.dailyTasks = this.dailyTasksService.getTodaysDailyTasks(this.clinic);
+    } 
   }
-  clinicSelected(clinic: Clinic): void {
-    this.clinic = clinic;
-    this.clinicService.clinic = clinic;
-    this.dailyTasks = this.dailyTasksService.getTodaysDailyTasks(clinic);
+  ngOnDestroy() {
+    this.clinicSubscription.unsubscribe();
   }
   startDay(): void {
     this.dailyTasks.started = true;
