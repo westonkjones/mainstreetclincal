@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Clinic } from '../../../../clinic/clinic';
-import { ClinicTask } from '../clinic.task';
+import { ClinicTask } from '../../../../clinic/task/clinic.task';
 
 @Component({
     moduleId: module.id,

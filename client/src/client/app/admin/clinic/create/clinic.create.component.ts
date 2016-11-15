@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Clinic } from '../../../clinic/clinic';
 import { ClinicService } from '../../../clinic/clinic.service';
-import { ClinicTask } from '../task/clinic.task';
+import { ClinicTask } from '../../../clinic/task/clinic.task';
 
 @Component({
     moduleId: module.id,

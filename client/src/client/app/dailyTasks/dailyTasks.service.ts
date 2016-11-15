@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { DailyTasks } from './dailyTasks';
-import { Clinic } from '../clinic/index';
+import { Clinic } from '../clinic/clinic';
 import { ClinicService } from '../clinic/clinic.service';
 
 @Injectable()
