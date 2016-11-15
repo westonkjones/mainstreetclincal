@@ -19,6 +19,10 @@ export const AdminRoutes: Route[] = [
                         component: ClinicCreateComponent
                     },
                     {
+                        path: ':name',
+                        component: ClinicCreateComponent
+                    },
+                    {
                         path: '**',
                         redirectTo: 'clinic/create'
                     }

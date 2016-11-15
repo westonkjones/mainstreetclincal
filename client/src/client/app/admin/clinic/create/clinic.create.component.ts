@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Clinic } from '../../../clinic/clinic';
@@ -17,10 +17,18 @@ export class ClinicCreateComponent {
     private clinic: Clinic;
     private submitted: boolean;
     private successful: boolean;
-    constructor(private clinicService: ClinicService, private router: Router, private modalService: NgbModal) {
+    constructor(private clinicService: ClinicService, private router: Router, private route: ActivatedRoute, private modalService: NgbModal) {
         this.clinic = new Clinic();
         this.submitted = false;
         this.successful = false;
+        this.route.params.subscribe(params => {
+            if(params['name'] !== null) {
+                this.clinicService.getClinic(params['name']).then(clinic => {
+                    if(clinic !== null)
+                        this.clinic = clinic;
+                });
+            }
+        });
     }
     openModal(content: any) {
         this.modalService.open(content);

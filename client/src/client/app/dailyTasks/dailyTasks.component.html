@@ -29,19 +29,19 @@
       </div>
       <div class="row">
         <h4>Please name each staff position</h4>
-        <div *ngIf="dailyTasks.staffCount >= 1" class="col-sm-3">
+        <div *ngIf="dailyTasks.staffCount >= 1" class="col-sm-3 text-center">
           <label>MA1<span *ngIf="dailyTasks.staffCount == 1">/MA2</span></label><br>
           <input type="text" [(ngModel)]="dailyTasks.ma1" autocomplete="off">
         </div>
-        <div *ngIf="dailyTasks.staffCount >= 2" class="col-sm-3">
+        <div *ngIf="dailyTasks.staffCount >= 2" class="col-sm-3 text-center">
           <label>MA2</label><br>
           <input type="text" [(ngModel)]="dailyTasks.ma2" autocomplete="off">
         </div>
-        <div *ngIf="dailyTasks.staffCount >= 3" class="col-sm-3">
+        <div *ngIf="dailyTasks.staffCount >= 3" class="col-sm-3 text-center">
           <label>Front Desk</label><br>
           <input type="text" [(ngModel)]="dailyTasks.frontDesk" autocomplete="off">
         </div>
-        <div *ngIf="dailyTasks.staffCount === 4" class="col-sm-3">
+        <div *ngIf="dailyTasks.staffCount === 4" class="col-sm-3 text-center">
           <label>MA3</label><br>
           <input type="text" [(ngModel)]="dailyTasks.ma3" autocomplete="off">
         </div>

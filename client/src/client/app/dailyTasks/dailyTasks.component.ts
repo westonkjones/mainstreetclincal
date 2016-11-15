@@ -17,7 +17,6 @@ export class DailyTasksComponent implements OnInit {
   private dailyTasks: DailyTasks = null;
   constructor(private clinicService: ClinicService, private dailyTasksService: DailyTasksService) {}
   ngOnInit(): void {
-    this.clinic = this.clinicService.getClinic();
     if(this.clinic === null) {
       this.clinicService.getClinics().then(clinics => this.clinics = clinics);
     } else {

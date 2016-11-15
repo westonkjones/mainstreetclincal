@@ -18,8 +18,15 @@ export class ClinicService {
         this.clinics.push(c2);
         this.clinics.push(c3);
     }
-    getClinic(): Clinic {
-        return this.clinic;
+    getClinic(name: string): Promise<Clinic> {
+        // Temporary implementation
+        for(let clinic of this.clinics) {
+            if(clinic.name === name)
+                return Promise.resolve(clinic);
+        }
+        
+        // This is a hack and should be fixed
+        return Promise.resolve(null);
     }
     getClinics(): Promise<Clinic[]> {
         return Promise.resolve(this.clinics);
