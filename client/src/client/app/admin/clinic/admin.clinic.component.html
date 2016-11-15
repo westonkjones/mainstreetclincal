@@ -3,3 +3,27 @@
         <a [routerLink]="['/admin/clinic/create']" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add a Clinic</a>
     </div>
 </div>
+<div class="row" style="padding-top: 10px">
+    <div class="col-xs-12">
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngFor="let clinic of clinics">
+                    <template #confirmationModal let-c="close">
+                        <div class="modal-header">
+                            <span class="pull-right">
+                                <a class="glyphicon glyphicon-remove" (click)="c()"></a>
+                            </span>
+                            <h3>Delete this clinic?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button (click)="removeClinic(clinic); c()" class="btn btn-default">Ok</button>
+                            <button (click)="c()" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </template>
+                    <td>{{clinic.name}}</td>
+                    <td class="text-right"><a (click)="openModal(confirmationModal)"><i class="fa fa-trash"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

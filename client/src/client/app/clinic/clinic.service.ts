@@ -28,4 +28,7 @@ export class ClinicService {
         this.clinics.push(clinic);
         return true;
     }
+    removeClinic(clinic: Clinic) {
+        this.clinics.splice(this.clinics.indexOf(clinic), 1);
+    }
 }
