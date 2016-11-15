@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Clinic } from '../clinic/index';
+import { Clinic } from '../clinic/clinic';
 import { ClinicService } from '../clinic/clinic.service';
 import { DailyTasks } from './dailyTasks';
 import { DailyTasksService } from './dailyTasks.service';

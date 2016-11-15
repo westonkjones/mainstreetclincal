@@ -14,12 +14,11 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { DailyTasksModule } from './dailyTasks/dailyTasks.module';
 import { TicketModule } from './ticket/ticket.module';
-import { ClinicModule } from './clinic/clinic.module';
 import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   imports: [BrowserModule, HttpModule, CommonModule, RouterModule.forRoot(routes), NgbModule.forRoot(), SharedModule.forRoot(),
-    HomeModule, TicketModule, DailyTasksModule, ClinicModule, Ng2AutoCompleteModule, AdminModule],
+    HomeModule, TicketModule, DailyTasksModule, Ng2AutoCompleteModule, AdminModule],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

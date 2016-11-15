@@ -1,4 +1,4 @@
-import { Clinic } from '../clinic/index';
+import { Clinic } from '../clinic/clinic';
 export class DailyTasks {
     date: Date;
     clinic: Clinic;
