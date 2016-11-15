@@ -1,9 +1,9 @@
-<div class="container">
-  <div *ngIf="clinic != null">
-    <div class="row text-center">
-      <h3>Today is {{dailyTasks?.date.toDateString()}}</h3>
-    </div>
-    <div *ngIf="!dailyTasks.started">
+<div *ngIf="clinic != null">
+  <div class="row text-center">
+    <h3>Today is {{dailyTasks?.date.toDateString()}}</h3>
+  </div>
+  <div *ngIf="!dailyTasks.started">
+    <div class="container">
       <div class="row">
         <h4>Please select a staff number to start the day</h4>
         <ul class="nav nav-pills nav-justified text-center">
@@ -36,8 +36,55 @@
         <button class="btn btn-default" (click)="startDay()">Start Day</button>
       </div>
     </div>
-    <div *ngIf="dailyTasks.started">
-      <h1>Started day!</h1>
-    </div>
+  </div>
+  <div *ngIf="dailyTasks.started">
+    <table class="table table-bordered table-condensed">
+      <colgroup>
+        <col>
+        <col style="background-color: #EAE2BD">
+        <col style="background-color: #CFCFCF" span="2">
+        <col style="background-color: #EAE2BD" span="3">
+        <col style="background-color: #CFCFCF" span="4">
+        <col>
+        <col>
+        <col>
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+            <th></th>
+            <th nowrap="nowrap">1 Staff</th>
+            <th nowrap="nowrap" colspan="2">2 Staff</th>
+            <th nowrap="nowrap" colspan="3">3 Staff</th>
+            <th nowrap="nowrap" colspan="4">4 Staff</th>
+            <th>{{dailyTasks.frontDesk}}</th>
+            <th>{{dailyTasks.ma1}}</th>
+            <th>{{dailyTasks.ma2}}</th>
+            <th>{{dailyTasks.ma3}}</th>
+        </tr>
+        <tr>
+            <th></th>
+            <!-- 1 Staff -->
+            <th>MA1</th>
+            <!-- 2 Staff -->
+            <th>MA1</th>
+            <th>MA2</th>
+            <!-- 3 Staff -->
+            <th>MA1</th>
+            <th>MA2</th>
+            <th>MA3</th>
+            <!-- 4 Staff -->
+            <th>MA1</th>
+            <th>MA2</th>
+            <th>MA3</th>
+            <th>Front Desk</th>
+            <th>Front Desk</th>
+            <th>MA1</th>
+            <th>MA2</th>
+            <th>MA3</th>
+        </tr>
+      </thead>
+
+    </table>
   </div>
 </div>

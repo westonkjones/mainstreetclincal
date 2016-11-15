@@ -4,6 +4,16 @@
       <a class="navbar-brand" [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">Mainstreet</a>
     </div>
     <ul class="nav navbar-nav pull-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-caret-down"></i>&nbsp;
+          <span *ngIf="clinic === null">Select a clinic</span>
+          <span *ngIf="clinic !== null">{{clinic.name}}</span>
+        </a>
+        <ul class="dropdown-menu scrollable-menu">
+          <li *ngFor="let c of clinics; trackBy: trackByFn"><a (click)="setClinic(c)">{{c.name}}</a></li>
+        </ul>
+      </li>
       <li><a [routerLink]="['/admin']"><i class="fa fa-user"></i></a></li>
     </ul>
   </div>

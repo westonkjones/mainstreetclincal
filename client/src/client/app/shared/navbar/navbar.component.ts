@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { DropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
-/**
- * This class represents the navigation bar component.
- */
+import { Clinic } from '../../clinic/clinic';
+import { ClinicService } from '../../clinic/clinic.service';
+
 @Component({
   moduleId: module.id,
   selector: 'sd-navbar',
@@ -10,4 +12,17 @@ import { Component } from '@angular/core';
   styleUrls: ['navbar.component.css'],
 })
 
-export class NavbarComponent {}
+export class NavbarComponent implements OnInit{
+  clinic: Clinic;
+  clinics: Clinic[];
+  clinicSubscription: Subscription;
+  constructor(private clinicService: ClinicService) {}
+  ngOnInit() {
+    this.clinicSubscription = this.clinicService.clinicObservable.subscribe(clinic => this.clinic = clinic);
+    this.clinicService.getClinics().then(clinics => this.clinics = clinics);
+  }
+  setClinic(clinic: Clinic) {
+    this.clinic = clinic;
+    this.clinicService.setCurrentClinic(clinic);
+  }
+}
