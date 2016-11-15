@@ -1,7 +1,10 @@
 export class ClinicTask {
     category: string = '';
     description: string = '';
-    repeats: string = '';
+    // Temporary solution
+    // Defaults to true for repeats every day
+    // Each item in array represents day of the week
+    repeats: boolean[] = [true, true, true, true, true];
     staff1: boolean[];
     staff2: boolean[];
     staff3: boolean[];

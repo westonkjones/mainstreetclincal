@@ -8,6 +8,37 @@
         <input [(ngModel)]="task.category" name="category" type="text" class="form-control" required autocomplete="off">
     </div>
     <div class="form-group">
+        <label>Repeats every</label>
+        <br>
+        <div class="col-xs-2">
+            M
+            <br>
+            <input [(ngModel)]="task.repeats[0]" type="checkbox" name="m">
+        </div>
+        <div class="col-xs-2">
+            T
+            <br>
+            <input [(ngModel)]="task.repeats[1]" type="checkbox" name="t">
+        </div>
+        <div class="col-xs-2">
+            W
+            <br>
+            <input [(ngModel)]="task.repeats[2]" type="checkbox" name="w">
+        </div>
+        <div class="col-xs-2">
+            R
+            <br>
+            <input [(ngModel)]="task.repeats[3]" type="checkbox" name="r">
+        </div>
+        <div class="col-xs-2">
+            F
+            <br>
+            <input [(ngModel)]="task.repeats[4]" type="checkbox" name="f">
+        </div>
+        <div class="col-xs-2">
+        </div>
+    </div>
+    <div class="form-group">
         <label>Staffing Options</label>
         <table class="table table-bordered">
             <colgroup>

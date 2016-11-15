@@ -38,7 +38,7 @@
                         <th nowrap="nowrap" colspan="2">2 Staff</th>
                         <th nowrap="nowrap" colspan="3">3 Staff</th>
                         <th nowrap="nowrap" colspan="4">4 Staff</th>
-                        <th>How Often</th>
+                        <th>Repeats every</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -102,7 +102,13 @@
                             <td><span *ngIf="task.staff4[1]">X</span></td>
                             <td><span *ngIf="task.staff4[2]">X</span></td>
                             <td><span *ngIf="task.staff4[3]">X</span></td>
-                            <td></td>
+                            <td>
+                                <span *ngIf="task.repeats[0]">M</span>
+                                <span *ngIf="task.repeats[0]">T</span>
+                                <span *ngIf="task.repeats[0]">W</span>
+                                <span *ngIf="task.repeats[0]">R</span>
+                                <span *ngIf="task.repeats[0]">F</span>
+                            </td>
                             <td><a (click)="openModal(editModal)"><i class="fa fa-pencil" style="color: #3167bf"></i></a></td>
                             <td><a (click)="openModal(confirmationModal)"><i class="fa fa-trash"></i></a></td>
                         </tr>
